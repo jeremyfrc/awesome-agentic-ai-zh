@@ -22,9 +22,9 @@
 3. [**Stage 5.1 — Claude Code 基礎**](../../stages/05-claude-code-ecosystem.md#51--claude-code-基礎) — slash commands 細節
 4. [**`resources/cli-agents-guide.md`** §「跨 CLI 都通用的 prompt 寫法」](../../resources/cli-agents-guide.md) — portable prompt 原則
 
-## 🛠 Hello-X Projects
+## 🛠 動手練習
 
-### Hello-CLI-5: 寫 production CLAUDE.md
+### 動手練習 CLI-5：寫 production CLAUDE.md
 你 CLAUDE.md 應該至少包含：
 - **角色**：「你是一個 senior Python engineer / 學術寫作助手 / 等」
 - **這個 repo 的 context**：是什麼專案、用什麼套件、有什麼 convention
@@ -34,7 +34,7 @@
 
 把這份提交到 git。下次新成員 clone repo，他的 Claude Code 自動載入你的 convention。
 
-### Hello-CLI-6: 第一個 slash command
+### 動手練習 CLI-6：第一個 slash command
 寫 `.claude/commands/review.md`（或對應 CLI 的位置）：
 ```markdown
 ---
@@ -50,13 +50,13 @@ description: Review staged changes for security + style
 ```
 之後每次 `/review`，CLI 都跑同一套流程。
 
-### Hello-CLI-7: 多步驟任務拆解
+### 動手練習 CLI-7：多步驟任務拆解
 給 CLI 一個複雜任務（譬如「把這 50 個 markdown 翻譯成英文 + 加 frontmatter + 移到 en/ 子目錄」）。
 - 第一次：直接丟整個任務 → 觀察 CLI 怎麼做、什麼地方會錯
 - 第二次：你先拆成 5 個 sub-task，逐一給 CLI → 觀察結果差別
 - 學到：CLI 跟你一樣，太大的任務要拆；給太小的任務又會 over-orchestrate
 
-### Hello-CLI-8: Portable prompt
+### 動手練習 CLI-8：Portable prompt
 寫一個 prompt 給 Claude Code 跑成功了。**換到 Codex / OpenCode / Gemini CLI 跑同一個 prompt**——什麼地方需要改？通常會發現：
 - file path convention 不同（cwd vs absolute）
 - 對「執行 shell」的權限預設不同

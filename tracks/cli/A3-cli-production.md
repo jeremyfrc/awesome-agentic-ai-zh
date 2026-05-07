@@ -22,17 +22,17 @@ CLI 跑得順了之後，下一步：**把它接到你的真實工作流程裡**
 3. [**Stage 7 — Observability section**](../../stages/07-multi-agent-production.md#observability) — langfuse / Helicone / weave
 4. [**`resources/cli-agents-guide.md`** §「常見坑」](../../resources/cli-agents-guide.md) — production 用 CLI 最常踩的問題
 
-## 🛠 Hello-X Projects
+## 🛠 動手練習
 
-### Hello-CLI-9: MCP server 接 CLI
-照 [Stage 5.2 Hello-MCP-client](../../stages/05-claude-code-ecosystem.md#hello-x) 的步驟，把至少一個有用的 MCP server 接到你的 CLI：
+### 動手練習 CLI-9：MCP server 接 CLI
+照 [Stage 5.2 練習：MCP client](../../stages/05-claude-code-ecosystem.md#hello-x) 的步驟，把至少一個有用的 MCP server 接到你的 CLI：
 - `filesystem` server → 讓 CLI 在指定目錄外也能讀檔
 - `github` server → 讓 CLI 直接讀 PR / issue
 - 自架 server → 接你的 internal API / DB
 
 成功標準：在 CLI 對話裡直接問「我這個 PR 有 conflict 嗎」，CLI 透過 MCP 回答你（不用你開瀏覽器）。
 
-### Hello-CLI-10: GitHub Actions + CLI
+### 動手練習 CLI-10：GitHub Actions + CLI
 寫一個 `.github/workflows/cli-review.yml`：
 - 觸發：PR opened / synchronize
 - 跑：在 GH Actions runner 內執行 Claude Code（或 Codex），給它 `git diff` + 你的 `.claude/commands/review.md`
@@ -42,13 +42,13 @@ CLI 跑得順了之後，下一步：**把它接到你的真實工作流程裡**
 
 > 起點：Anthropic 官方有 [`claude-code-action`](https://github.com/anthropics/claude-code-action)（GitHub Actions 整合）；Codex 有 GitHub App 跟 CLI 兩種模式。
 
-### Hello-CLI-11: Cost tracking
+### 動手練習 CLI-11：Cost tracking
 跑你日常的一個 task，**先預估** token 用量，再實際跑、查 token usage。差距通常很大（多半你低估）。
 - 算式：input tokens + output tokens 各乘以 model 單價
 - 接 langfuse 或 Helicone（[Stage 7 Observability section](../../stages/07-multi-agent-production.md#observability)）做 trace
 - 觀察：哪個 sub-task 花最多 token？是不是有不必要的 long context？
 
-### Hello-CLI-12: Skill / plugin 跨 team 分享
+### 動手練習 CLI-12：Skill / plugin 跨 team 分享
 把你的 `.claude/commands/` 跟 `CLAUDE.md` 打包成 plugin，發布到內部 marketplace 或 GitHub。Team 其他人 `claude plugin install` 之後就有同樣的工作流。
 - Skill / plugin 細節見 [Stage 5.3 + 5.4](../../stages/05-claude-code-ecosystem.md)
 - 範本：[anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official)

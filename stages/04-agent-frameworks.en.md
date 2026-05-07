@@ -5,6 +5,8 @@
 
 ⏱ **Time estimate**: 2-3 weeks (~10-15 hours)
 
+> 💡 Term-unfamiliar? (framework / supervisor / worker / handoff / …) → [`resources/glossary.en.md`](../resources/glossary.en.md).
+
 You've built a ReAct agent from scratch (Stage 3). Now learn what frameworks do for you. **Pick one to deeply learn**, browse the others to know when to switch.
 
 ## 📌 Learning Goals
@@ -19,7 +21,7 @@ After this stage you will be able to:
 
 You should already:
 - Have completed all 5 hello-X projects in Stage 3
-- Have built ReAct from scratch (Hello-3)
+- Have built ReAct from scratch (練習 3)
 - Be comfortable with async Python (frameworks lean on async)
 
 ⚠️ **Memory primer (peek ahead if needed)**: Some framework features rely on memory concepts — LangGraph uses checkpointing (state persistence), CrewAI passes task results between agents (lightweight memory). [Stage 6 — Memory & RAG](06-memory-rag.md) covers these properly. You don't need to read it first, but if a framework feature feels mysterious, that's where the answer is.
@@ -31,24 +33,24 @@ You should already:
 3. [**Best Multi-Agent Frameworks 2026 comparison**](https://gurusup.com/blog/best-multi-agent-frameworks-2026) — current market positioning
 4. **One framework's Quickstart** — pick LangGraph or CrewAI; do their official tutorial end-to-end
 
-## 🛠 Hello-X Projects
+## 🛠 動手練習
 
-### Hello-1: Same agent, two frameworks
+### 練習 1：Same agent, two frameworks
 Build the same simple agent (search + summarize task) in:
 - LangGraph
 - CrewAI
 Compare lines of code, debugging experience, and where they hide complexity.
 
-### Hello-2: Multi-agent role assignment
+### 練習 2：Multi-agent role assignment
 Use CrewAI to build 2-3 agents with distinct roles working on the same task. (CrewAI is best for this.)
 
-### Hello-3: Graph-based workflow
+### 練習 3：Graph-based workflow
 Use LangGraph to build a workflow with branching logic and human-in-the-loop checkpoint. (LangGraph is best for this.)
 
-### Hello-4: CodeAct vs JSON tool
-Build a Smolagents agent that writes Python code as actions (CodeAct pattern), then compare against the JSON tool-call route from Hello-1. Ask the same question and observe how the two routes solve it differently.
+### 練習 4：CodeAct vs JSON tool
+Build a Smolagents agent that writes Python code as actions (CodeAct pattern), then compare against the JSON tool-call route from 練習 1. Ask the same question and observe how the two routes solve it differently.
 
-### Hello-5: Type-safe agent
+### 練習 5：Type-safe agent
 Use Pydantic AI to build an agent that returns structured output (e.g. ask a question, get back `{ "answer": str, "confidence": float, "sources": [str] }`). Watch how Pydantic's schema validation prevents the agent from cutting corners or hallucinating structure.
 
 ## 🎯 Curated Projects

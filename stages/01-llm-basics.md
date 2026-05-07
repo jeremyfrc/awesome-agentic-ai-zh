@@ -30,9 +30,9 @@
 3. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face 的入門
 4. [**Anthropic API Pricing**](https://www.anthropic.com/pricing#anthropic-api) — 把計價表看完，算一下 1k input + 1k output 的成本
 
-## 🛠 Hello-X Projects（必做練習，不是看過就好）
+## 🛠 動手練習（必做練習，不是看過就好）
 
-### Hello, LLM API
+### 練習：LLM API
 五行 Python 呼叫 Claude API 並印出回應。
 
 ```python
@@ -46,25 +46,25 @@ msg = client.messages.create(
 print(msg.content[0].text)
 ```
 
-### Hello, Tokens
+### 練習：Tokens
 同一個 prompt 跑 100 次，觀察 token 數的變化。
 - 注意：temperature ≠ 0 會產生變動
 - 注意：同一句話的英文 vs 中文 token 數差異
 
-### Hello, Pricing
+### 練習：Pricing
 算出你的 hello-world prompt 跑 1000 次的實際美金成本。用 Anthropic 的 pricing page + SDK 的 `usage` 欄位來算 token。
 
-### Hello, Cross-Provider 比較
+### 練習：Cross-Provider 比較
 同一個 prompt 同時送給 Claude、GPT、Gemini，比較三家的回應差異。觀察「同一句話為什麼產生不同答案」——回答風格、長度、判斷取捨都不一樣。建議用 OpenAI、Anthropic、Google 三家 SDK 各一段程式呼叫。
 
-### Hello, Error Handling
+### 練習：Error Handling
 故意觸發錯誤情境並寫 retry：
 - API key 錯誤 → 看怎麼 raise
 - prompt 超長 → context window 滿了會發生什麼
 - 網路斷掉 → 寫一個有 exponential backoff 的 retry wrapper
 這是後面 Stage 3-7 寫 production agent 一定會用到的基礎。
 
-### Hello, Local LLM
+### 練習：Local LLM
 **不付 API 費用、跑在自己電腦上**：用 Ollama 下載一個小模型（建議 `llama3.2:3b` 或 `qwen2.5:3b`），用 OpenAI-相容 API 呼叫它。
 ```bash
 # 裝 Ollama: https://ollama.com
@@ -238,7 +238,7 @@ jupyter notebook guide.ipynb
 
 ### 🖥️ 本地端執行 LLM（不用付 API 費用）
 
-下面 4 個是「**把 LLM 跑在自己電腦上**」的工具——適合 Hello-Local-LLM 之後想深入的人，也是隱私敏感、API 費用敏感、或要 offline 工作場景的解法。
+下面 4 個是「**把 LLM 跑在自己電腦上**」的工具——適合 練習：Local LLM 之後想深入的人，也是隱私敏感、API 費用敏感、或要 offline 工作場景的解法。
 
 ---
 

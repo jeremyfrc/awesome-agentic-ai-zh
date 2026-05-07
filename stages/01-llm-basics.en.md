@@ -31,9 +31,9 @@ If not — go back to Stage 0 first.
 3. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face's intro
 4. [**Anthropic API Pricing**](https://www.anthropic.com/pricing#anthropic-api) — read the pricing table, calculate cost for 1k input + 1k output
 
-## 🛠 Hello-X Projects (must run, not just read)
+## 🛠 Hands-on Exercises (do them, not just read)
 
-### Hello, LLM API
+### 練習：LLM API
 Five-line Python script that calls Claude API and prints the response.
 
 ```python
@@ -47,25 +47,25 @@ msg = client.messages.create(
 print(msg.content[0].text)
 ```
 
-### Hello, Tokens
+### 練習：Tokens
 Run the same prompt 100 times and watch token counts vary.
 - Notice: temperature ≠ 0 produces variation
 - Notice: token count for the SAME English vs Chinese sentence
 
-### Hello, Pricing
+### 練習：Pricing
 Calculate the actual dollar cost of running 1000 inferences for your hello-world prompt. Use Anthropic's pricing page + count tokens via the SDK's `usage` field.
 
-### Hello, Cross-Provider Comparison
+### 練習：Cross-Provider Comparison
 Send the same prompt to Claude, GPT, and Gemini simultaneously, compare their responses. Notice "why does the same input produce different answers" — answer style, length, and judgment all differ. Use the OpenAI, Anthropic, and Google SDKs side-by-side.
 
-### Hello, Error Handling
+### 練習：Error Handling
 Trigger error conditions deliberately and write retry logic:
 - Wrong API key → see how it raises
 - Over-long prompt → what happens when the context window is full
 - Network drop → write a retry wrapper with exponential backoff
 This is foundational for Stage 3-7's production agent code.
 
-### Hello, Local LLM
+### 練習：Local LLM
 **No API fees, runs on your machine**: use Ollama to pull a small model (recommend `llama3.2:3b` or `qwen2.5:3b`), call it via OpenAI-compatible API.
 ```bash
 # Install Ollama: https://ollama.com
@@ -239,7 +239,7 @@ jupyter notebook guide.ipynb
 
 ### 🖥️ Running LLMs Locally (no API fees)
 
-The four entries below are tools to **run LLMs on your own machine** — useful after Hello-Local-LLM, and the answer for privacy-sensitive work, cost-sensitive experiments, or offline scenarios.
+The four entries below are tools to **run LLMs on your own machine** — useful after 練習：Local LLM, and the answer for privacy-sensitive work, cost-sensitive experiments, or offline scenarios.
 
 ---
 

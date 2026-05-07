@@ -5,6 +5,8 @@
 
 ⏱ **Time estimate**: 1-2 weeks (~5-15 hours, can skip if you have these)
 
+> 💡 **Don't recognize a term?** Check [`resources/glossary.en.md`](../resources/glossary.en.md) for a 30-second definition. Stage 0 doesn't lean on much jargon, but the next stages do.
+
 ## When to skip this stage
 
 If you can:
@@ -24,13 +26,13 @@ If you can't, work through this stage. Don't skip — every later stage assumes 
 - Use REST APIs: send GET/POST, parse JSON, handle auth headers
 - Read & write YAML and JSON
 
-## 🛠 Hello-X
+## 🛠 動手練習
 
-- **Hello Python** — write a Python script that calls https://api.github.com/users/torvalds and prints follower count
-- **Hello git** — clone any public repo, make a commit, push to your fork
-- **Hello CLI** — make a small directory tree with the command line (macOS / Linux: `mkdir project && cd project && mkdir src tests docs`; Windows PowerShell: `New-Item -ItemType Directory -Path project,project\src,project\tests,project\docs`), run a Python script, redirect output to a file
-- **Hello YAML** — read a `.yaml` config file in Python, modify a value, write it back
-- **Hello API auth** — at [github.com/settings/tokens](https://github.com/settings/tokens) generate a personal access token (minimal scope: `read:user`), call the auth-required `https://api.github.com/user` endpoint, observe 401 (no token) vs 200 (with token). Note: real production agents always use API auth — do this exercise
+- **練習：Python** — write a Python script that calls https://api.github.com/users/torvalds and prints follower count
+- **練習：git** — clone any public repo, make a commit, push to your fork
+- **練習：CLI** — make a small directory tree with the command line (macOS / Linux: `mkdir project && cd project && mkdir src tests docs`; Windows PowerShell: `New-Item -ItemType Directory -Path project,project\src,project\tests,project\docs`), run a Python script, redirect output to a file
+- **練習：YAML** — read a `.yaml` config file in Python, modify a value, write it back
+- **練習：API auth** — at [github.com/settings/tokens](https://github.com/settings/tokens) generate a personal access token (minimal scope: `read:user`), call the auth-required `https://api.github.com/user` endpoint, observe 401 (no token) vs 200 (with token). Note: real production agents always use API auth — do this exercise
 
 ## 🎯 Curated Resources (not full projects, just learning material)
 

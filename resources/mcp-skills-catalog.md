@@ -10,7 +10,7 @@
 
 - **想找特定工具的 MCP**：直接看下面分類目錄
 - **想看 MCP / Skills / Plugins 是什麼**：先看 [README 三個核心用語](../README.md#三個核心用語mcp--skills--plugins)，再看 [Stage 5 — Claude Code 生態系](../stages/05-claude-code-ecosystem.md)
-- **想看 Hello-X 怎麼裝、怎麼測**：看 [Stage 5.2 (MCP)](../stages/05-claude-code-ecosystem.md#52--mcpmodel-context-protocol-基礎) 跟 [Stage 5.3 (Skills)](../stages/05-claude-code-ecosystem.md#53--skillsclaude-code-的行為層)
+- **想看 動手練習 怎麼裝、怎麼測**：看 [Stage 5.2 (MCP)](../stages/05-claude-code-ecosystem.md#52--mcpmodel-context-protocol-基礎) 跟 [Stage 5.3 (Skills)](../stages/05-claude-code-ecosystem.md#53--skillsclaude-code-的行為層)
 
 ### 收錄原則
 
@@ -282,7 +282,7 @@
 
 **教什麼**：GitHub 官方 MCP——issue / PR / repo / Actions / Codespaces 操作。
 **適合誰**：所有 GitHub 使用者；Claude Code 接上去後 PR review、issue triage、release notes 都能跑。
-**備註**：**走 Track A 的 A3 Hello-CLI-9 必裝**。
+**備註**：**走 Track A 的 A3 動手練習 CLI-9 必裝**。
 
 ### [sooperset/mcp-atlassian](https://github.com/sooperset/mcp-atlassian) ⭐⭐⭐⭐⭐
 

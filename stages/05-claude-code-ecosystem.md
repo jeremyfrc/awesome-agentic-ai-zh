@@ -4,8 +4,10 @@
 
 ⏱ **時間估算**：3-4 週（約 15-25 小時）
 
+> 💡 整個 stage 圍繞 4 個關鍵詞（**MCP / Skills / Plugins / Marketplace**）展開 → 不熟先翻 [`resources/glossary.md` §5](../resources/glossary.md#5-claude-code-生態)。
+
 > 📌 **這個 stage 兩條軌都用**：
-> - **Track A（CLI Power User）**：A2 用 [5.1（Claude Code 基礎）](#51--claude-code-基礎)；A3 用 [5.2（MCP）](#52--mcpmodel-context-protocol-基礎) + 選擇性用到 [5.3（Skills）](#53--skillsclaude-code-的行為層) 跟 [5.4（Plugins）](#54--plugins-與-marketplaces)（A3 的 Hello-CLI-12 會教把 CLAUDE.md 跟 commands 打包成 plugin）。讀的角度是「**怎麼用 Claude Code 把工作做好**」
+> - **Track A（CLI Power User）**：A2 用 [5.1（Claude Code 基礎）](#51--claude-code-基礎)；A3 用 [5.2（MCP）](#52--mcpmodel-context-protocol-基礎) + 選擇性用到 [5.3（Skills）](#53--skillsclaude-code-的行為層) 跟 [5.4（Plugins）](#54--plugins-與-marketplaces)（A3 的 動手練習 CLI-12 會教把 CLAUDE.md 跟 commands 打包成 plugin）。讀的角度是「**怎麼用 Claude Code 把工作做好**」
 > - **Track B（Agent Builder）**：把整個 stage 當「**Claude Code 內部怎麼運作**」的深度學習，從 5.1 完整走到 5.4
 
 ## Stack 一覽
@@ -62,9 +64,9 @@ flowchart TB
 2. [**Anthropic — CLAUDE.md best practices**](https://docs.anthropic.com/en/docs/claude-code/memory) — 怎麼寫專案 memory
 3. [**KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh**](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) — 簡中入門指南
 
-### Hello-X
-- **Hello Claude Code** — 安裝、跑第一個 session、請 Claude 讀檔案並摘要
-- **Hello CLAUDE.md** — 寫一份專案 CLAUDE.md，觀察行為的差異
+### 動手練習
+- **練習：Claude Code** — 安裝、跑第一個 session、請 Claude 讀檔案並摘要
+- **練習：CLAUDE.md** — 寫一份專案 CLAUDE.md，觀察行為的差異
 
 ### 精選 Projects
 - [**anthropics/claude-code**](https://github.com/anthropics/claude-code) — 官方 repo（issues、releases）
@@ -86,15 +88,15 @@ flowchart TB
 2. [**MCP Specification**](https://modelcontextprotocol.io/specification) — 實際的協定規格
 3. [**Complete Guide to MCP in 2026**](https://dev.to/x4nent/complete-guide-to-mcp-model-context-protocol-in-2026-architecture-implementation-and-4a11) — 實作導讀
 
-### Hello-X
-- **Hello MCP client** — 安裝 `modelcontextprotocol/servers/filesystem`，從 Claude Desktop 連上去。看著 Claude 讀你的檔案。
-- **Hello MCP server** — 寫一個 Python MCP server，提供一個 tool（例如「換算溫度」）。從 Claude Code 連過去。
-- **Hello MCP in production** — 在同一個 Claude session 裡同時連 2-3 個 MCP server，看它們互相搭配。
+### 動手練習
+- **練習：MCP client** — 安裝 `modelcontextprotocol/servers/filesystem`，從 Claude Desktop 連上去。看著 Claude 讀你的檔案。
+- **練習：MCP server** — 寫一個 Python MCP server，提供一個 tool（例如「換算溫度」）。從 Claude Code 連過去。
+- **練習：MCP in production** — 在同一個 Claude session 裡同時連 2-3 個 MCP server，看它們互相搭配。
 
 ### 精選 Projects
 
 > 💡 **找日常工具的 MCP（Notion / Obsidian / Excel / Postgres / Playwright / Figma 等）？**
-> 看 [`resources/mcp-skills-catalog.md`](../resources/mcp-skills-catalog.md)——按 12 個分類整理 54 個常用 MCP server / Skill，每個都附 stars / license / 適合誰。下面這節保留的是「**寫自己 MCP server 時的 reference**」性質的官方 server / SDK。
+> 看 [`resources/mcp-skills-catalog.md`](../resources/mcp-skills-catalog.md)——按 14 個分類整理 54 個常用 MCP server / Skill，每個都附 stars / license / 適合誰。下面這節保留的是「**寫自己 MCP server 時的 reference**」性質的官方 server / SDK。
 
 
 #### [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) ⭐ 官方
@@ -108,7 +110,7 @@ flowchart TB
 
 **教什麼**：20+ 個參考用 MCP server（filesystem、git、github、sqlite、time、fetch、memory、sequential thinking）。寫自己的 server 時最標準的範例。
 
-**適合誰**：Hello-1 以及之後當參考用。讀 `everything` server 跟 `filesystem` server 的原始碼，理解協定怎麼運作。
+**適合誰**：練習 1 以及之後當參考用。讀 `everything` server 跟 `filesystem` server 的原始碼，理解協定怎麼運作。
 
 **怎麼跑**：
 ```bash
@@ -127,7 +129,7 @@ pip install mcp-server-fetch
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐⭐ |
 
-**教什麼**：寫 MCP server 的官方 Python SDK。Hello-2 用這個。
+**教什麼**：寫 MCP server 的官方 Python SDK。練習 2 用這個。
 
 **怎麼跑**：
 ```bash
@@ -196,7 +198,7 @@ pip install mcp
 
 **教什麼**：一個非平凡的 MCP server，會生成 UI 元件。讓你看到 MCP 不只能做資料抓取。
 
-**適合誰**：做完 Hello-2 之後找靈感——MCP server 還能做出什麼有創意的東西。
+**適合誰**：做完 練習 2 之後找靈感——MCP server 還能做出什麼有創意的東西。
 
 ---
 
@@ -212,10 +214,10 @@ pip install mcp
 1. [**Anthropic — Claude Skills 文件**](https://docs.anthropic.com/en/docs/claude-code/skills)
 2. **幾份範例 SKILL.md**——從 `anthropics/claude-code` 或社群 marketplace 拿
 
-### Hello-X
-- **Hello SKILL.md** — 寫一份 200 字的 skill，解決你日常工作中的某一件事
-- **Hello SKILL with references** — 加一份 `references/` markdown 讓 skill 可以引用
-- **Hello SKILL eval** — 加 `evals/evals.json`，放 3-5 個自我測試
+### 動手練習
+- **練習：SKILL.md** — 寫一份 200 字的 skill，解決你日常工作中的某一件事
+- **練習：SKILL with references** — 加一份 `references/` markdown 讓 skill 可以引用
+- **練習：SKILL eval** — 加 `evals/evals.json`，放 3-5 個自我測試
 
 ### 精選 Projects
 
@@ -341,10 +343,10 @@ pip install mcp
 1. [**Anthropic — Plugins 文件**](https://docs.anthropic.com/en/docs/claude-code/plugins)
 2. **讀下面 2-3 個 marketplace 的 `plugin.json` 與 `marketplace.json`**
 
-### Hello-X
-- **Hello plugin install** — 安裝下面的某一個 marketplace，看它載入
-- **Hello plugin.json** — 把 5.3 寫的 SKILL.md 打包成一個 plugin
-- **Hello marketplace publish** — push 到 GitHub，用 `claude plugin marketplace add` 安裝
+### 動手練習
+- **練習：plugin install** — 安裝下面的某一個 marketplace，看它載入
+- **練習：plugin.json** — 把 5.3 寫的 SKILL.md 打包成一個 plugin
+- **練習：marketplace publish** — push 到 GitHub，用 `claude plugin marketplace add` 安裝
 
 ### 精選 Projects
 
@@ -404,7 +406,7 @@ pip install mcp
 
 **教什麼**：社群中規模最大的 Claude Code agents、skills、hooks、templates 目錄之一。涵蓋的 use case 很廣。
 
-**適合誰**：跑完 Hello-3 之後逛逛看外面有什麼。
+**適合誰**：跑完 練習 3 之後逛逛看外面有什麼。
 
 ---
 

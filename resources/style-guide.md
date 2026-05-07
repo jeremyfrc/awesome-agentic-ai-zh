@@ -155,7 +155,7 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 - `marketplace`、`plugin`、`skill`、`hook`
 - `project`、`repo` （可保留也可改用「專案」）
 - `production`（指「正式環境」時）— 但本 catalog 多數場合刻意避免（見 §3）
-- `Hello-X`、`hello-world` — 保留
+- `動手練習`、`hello-world` — 保留
 
 **判準**：技術文件圈讀者習慣的英文術語就保留，避免「太政治正確的中文化」。
 
@@ -214,12 +214,12 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 1. [連結](url) — 描述
 2. ...
 
-## 🛠 Hello-X Projects（必做練習、不是看就好）
+## 🛠 動手練習（不是看過就好）
 
-### Hello-N: 標題
+### 練習 N：標題
 描述。
 
-[3-5 個 Hello-X items]
+[3-5 個動手練習 items]
 
 ## 🎯 精選 Projects
 
@@ -328,7 +328,7 @@ Branch 的 entry 格式可以比 stage 簡潔（不一定要完整 schema 表格
 這份 style-guide 講「entry 怎麼寫」。為什麼分這 5 個 branch、為什麼是 7 個 stage 這類**設計理由**，見：
 
 - [`branches/DESIGN.md`](../branches/DESIGN.md)——branch 設計筆記（為什麼這樣切、entry 該放哪）
-- [`stages/DESIGN.md`](../stages/DESIGN.md)——stage 設計筆記（為什麼這結構、Hello-X 怎麼挑）
+- [`stages/DESIGN.md`](../stages/DESIGN.md)——stage 設計筆記（為什麼這結構、動手練習 怎麼挑）
 - [`cli-agents-guide.md`](cli-agents-guide.md)——cross-cutting CLI agent 比較指南
 
 ## 修改本指南

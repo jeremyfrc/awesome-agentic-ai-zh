@@ -19,7 +19,7 @@ A learning roadmap for agentic AI — **from LLM fundamentals to building multi-
 
 If you want to learn AI applications or grow from basics into multi-agent systems — **the most common problem isn't lack of resources, it's not knowing where to start**. Awesome lists in English and Chinese have hundreds of repos but no path; people learning Claude Code, LangGraph, or RAG end up scattered across communities, using different terms, recommending different starter projects.
 
-So we curated **134 high-quality projects** into a "from zero to advanced multi-agent" learning roadmap, organized as **7 stages**. Each stage tells you exactly **what to learn, which Hello-X demos to run, which projects to study, and what self-check to pass before advancing**.
+So we curated **134 high-quality projects** into a "from zero to advanced multi-agent" learning roadmap, organized as **7 stages**. Each stage tells you exactly **what to learn, which 動手練習 to run, which projects to study, and what self-check to pass before advancing**.
 
 After the main path, you go from "**LLM user**" to "**agent system builder**" — capable of designing multi-agent collaboration, writing your own MCP server, and shipping real agent systems.
 
@@ -56,7 +56,7 @@ cd awesome-agentic-ai-zh
 
 - 📖 **Fully free** — MIT-licensed, all content open
 - 🗺️ **Two learning tracks** — Track A (CLI Power User) for "use existing CLIs"; Track B (Agent Builder) for "build your own". Shared Stages 0-2 foundation.
-- 🛠️ **Must-do Hello-X exercises** — 1-5 mini projects per stage (specs + success criteria, **you write the code**, not turnkey demos); reading-only doesn't count
+- 🛠️ **Must-do 動手練習s** — 1-5 mini projects per stage (specs + success criteria, **you write the code**, not turnkey demos); reading-only doesn't count
 - 🎯 **145+ curated projects** — each with star rating, audience, what it teaches, how to run (incl. local LLM runners: Ollama, llama.cpp, LocalAI, MLX)
 - 🌏 **Bilingual** — zh-TW canonical, English mirror
 - 🎓 **Beyond frameworks: Claude Code ecosystem** — MCP / Skills / Plugins / SDK full stack
@@ -98,7 +98,7 @@ The two tracks are **not mutually exclusive** — most people start with A to ge
 
 | Stage | Topic | Key Content | Time |
 |---|---|---|---|
-| **3** ⭐ | [Tool Use & Hello Agent](stages/03-tool-use-and-hello-agent.en.md) | function calling · ReAct · 5 Hello-X | 2-3 wks |
+| **3** ⭐ | [Tool Use & Agent 入門](stages/03-tool-use-and-hello-agent.en.md) | function calling · ReAct · 5 動手練習 | 2-3 wks |
 | **4** | [Agent Frameworks](stages/04-agent-frameworks.en.md) | LangGraph · AutoGen · CrewAI · Smolagents | 2-3 wks |
 | **5** ⭐⭐ | [Claude Code Ecosystem](stages/05-claude-code-ecosystem.en.md) | MCP · Skills · Plugins · Marketplace (used by both tracks) | 3-4 wks |
 | **6** | [Memory · RAG · Advanced](stages/06-memory-rag.en.md) | vector DB · long-term memory · contextual retrieval | 2 wks |
@@ -145,7 +145,7 @@ The main path has 4 parts:
 
 After the main path (14-19 weeks), pick a branch.
 
-The most important advice: **don't skip Hello-X demos**. Each stage's Hello-X is "you can't learn this without doing it" — skim past it and you'll get stuck later.
+The most important advice: **don't skip 動手練習**. Each stage's 動手練習 is "you can't learn this without doing it" — skim past it and you'll get stuck later.
 
 Ready? [Start at Stage 0](stages/00-foundations.en.md).
 

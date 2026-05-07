@@ -17,7 +17,7 @@ Not sure where to start? Pick one you can finish in 30 minutes:
 2. **🔗 Fix one broken link**: hit a 404 reading stage X? Just PR the fix
 3. **✍️ Fill in an entry's "Run it" section**: many entries lack install commands; if you've run it, add them
 4. **🌏 Improve one English companion sentence**: pick any `.en.md`, compare to the zh version, fix one awkward translation
-5. **💬 Add a personal note to an entry**: stuck on `Hello-3`? Add a "Note: xxx" line
+5. **💬 Add a personal note to an entry**: stuck on `練習 3`? Add a "Note: xxx" line
 
 None of these require reading the full style-guide first; they merge fast — perfect for a first PR.
 

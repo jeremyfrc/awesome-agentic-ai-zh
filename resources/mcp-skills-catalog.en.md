@@ -10,7 +10,7 @@
 
 - **Looking for a specific tool's MCP**: jump to the relevant section below
 - **Want to know what MCP / Skills / Plugins are**: see [README "Three core terms"](../README.en.md#three-core-terms-mcp--skills--plugins) first, then [Stage 5 — Claude Code Ecosystem](../stages/05-claude-code-ecosystem.en.md)
-- **Want Hello-X exercises (install + test)**: see [Stage 5.2 (MCP)](../stages/05-claude-code-ecosystem.en.md#52--mcp-model-context-protocol-foundation) and [Stage 5.3 (Skills)](../stages/05-claude-code-ecosystem.en.md#53--skills-claude-code-behavior-layer)
+- **Want 動手練習s (install + test)**: see [Stage 5.2 (MCP)](../stages/05-claude-code-ecosystem.en.md#52--mcp-model-context-protocol-foundation) and [Stage 5.3 (Skills)](../stages/05-claude-code-ecosystem.en.md#53--skills-claude-code-behavior-layer)
 
 ### Inclusion criteria
 
@@ -282,7 +282,7 @@
 
 **What it does**: GitHub's official MCP — issues / PRs / repos / Actions / Codespaces.
 **Audience**: every GitHub user; once Claude Code is wired up, PR review, issue triage, release notes all work.
-**Notes**: **must-install for Track A's A3 Hello-CLI-9**.
+**Notes**: **must-install for Track A's A3 動手練習 CLI-9**.
 
 ### [sooperset/mcp-atlassian](https://github.com/sooperset/mcp-atlassian) ⭐⭐⭐⭐⭐
 

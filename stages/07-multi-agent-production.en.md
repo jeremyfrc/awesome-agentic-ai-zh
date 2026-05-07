@@ -5,6 +5,8 @@
 
 ⏱ **Time estimate**: 2-4 weeks (~15-30 hours)
 
+> 💡 Term-dense (multi-agent / handoff / eval / observability / guardrails / …) → see [`resources/glossary.en.md` §4 + §6](../resources/glossary.en.md#4-multi-agent).
+
 The final stage. You're moving from "I can build agents" to "I can run them in production with multiple agents coordinating, evaluation, observability, and deployment."
 
 ## 📌 Learning Goals
@@ -22,21 +24,21 @@ The final stage. You're moving from "I can build agents" to "I can run them in p
 3. [**Anthropic — Message Batches API**](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) — async batch jobs
 4. **One eval framework's docs** — promptfoo OR LangSmith OR weave
 
-## 🛠 Hello-X Projects (must run, not just read)
+## 🛠 Hands-on Exercises (do them, not just read)
 
-### Hello-1: Multi-Agent debate
+### 練習 1：Multi-Agent debate
 Two agents debate a topic (e.g. "Python vs Rust for backend"), a third agent judges. Watch for convergence vs divergence patterns.
 
-### Hello-2: Eval
+### 練習 2：Eval
 Write an eval for one of your earlier agents, run it N times, measure success rate. Replace "I'll just eyeball it."
 
-### Hello-3: Observability
+### 練習 3：Observability
 Connect LangSmith / Helicone / weave to an agent, view the full trace. Understand: "agent debugging without observability = black box."
 
-### Hello-4: SDK advanced
+### 練習 4：SDK advanced
 Use streaming + prompt caching + tool use in one call. Watch how cost drops.
 
-### Hello-5: Deploy
+### 練習 5：Deploy
 Package an agent in Docker, deploy to cloud (any provider). Learn to ship a prototype as something others can run.
 
 ## 🎯 Curated Projects

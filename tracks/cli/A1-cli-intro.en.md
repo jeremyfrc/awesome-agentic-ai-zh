@@ -18,7 +18,7 @@ After Stages 0-2, you want to use existing CLI agents to get real work done — 
 ## 🚪 Entry Conditions
 
 You should already:
-- Have completed Stage 0's Hello-CLI (basic command-line literacy)
+- Have completed Stage 0's 練習：CLI (basic command-line literacy)
 - Have a Claude / OpenAI / Google account (paid not required)
 - Be comfortable with prompt design (Stage 2)
 
@@ -28,12 +28,12 @@ You should already:
 2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — official install
 3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex install + auth
 
-## 🛠 Hello-X Projects (must run, not just read)
+## 🛠 Hands-on Exercises (do them, not just read)
 
-### Hello-CLI-1: Install + first run
+### 動手練習 CLI-1：Install + first run
 Follow your chosen CLI's quickstart. **Don't write "hello world"** — give it a real task you were going to do today, e.g. "organize my Downloads folder, move all PDFs to ~/Documents/PDFs". Watch how it decomposes the task and what confirmations it asks for.
 
-### Hello-CLI-2: CLI's built-in system prompt file
+### 動手練習 CLI-2：CLI's built-in system prompt file
 - Claude Code → write a `CLAUDE.md` at the repo root
 - Codex → write `AGENTS.md`
 - Gemini CLI → write `GEMINI.md`
@@ -41,10 +41,10 @@ Follow your chosen CLI's quickstart. **Don't write "hello world"** — give it a
 
 Put 3 things in it: "your persona / preferred code style / things you can't do". Then run a task and observe behavioral differences.
 
-### Hello-CLI-3: Run a second CLI alongside
+### 動手練習 CLI-3：Run a second CLI alongside
 Install a second CLI (suggest Codex or OpenCode as backup). Run the same prompt and compare output style, speed, cost. **Not to pick a winner — to learn that "different CLIs solve the same problem from different angles".**
 
-### Hello-CLI-4: Auth corner cases
+### 動手練習 CLI-4：Auth corner cases
 Deliberately break your API key (one wrong character) and see how the CLI errors out. Then "correct key but wrong model name". Production usage will hit auth issues — step on these now.
 
 ## 🎯 Curated Projects
@@ -91,7 +91,7 @@ Can you:
 
 If yes → proceed to [A2 — CLI Workflow Patterns](A2-cli-workflow.en.md).
 
-If no → don't skip. Sloppy CLI usage isn't productive CLI usage; do Hello-CLI-1/2 at least 3 more times.
+If no → don't skip. Sloppy CLI usage isn't productive CLI usage; do 動手練習 CLI-1/2 at least 3 more times.
 
 ## 💡 Reminder for Track A learners
 

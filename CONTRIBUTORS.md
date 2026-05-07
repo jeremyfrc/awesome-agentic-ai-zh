@@ -34,7 +34,7 @@
 
 | Stage | Maintainer | 加入日期 |
 |---|---|---|
-| Stage 3 — Tool Use & Hello Agent ⭐ | （社群 PR 機會） | — |
+| Stage 3 — Tool Use & Agent 入門 ⭐ | （社群 PR 機會） | — |
 | Stage 4 — Agent 框架 | （社群 PR 機會） | — |
 | Stage 5 — Claude Code 生態 ⭐⭐（兩條軌共用） | （社群 PR 機會） | — |
 | Stage 6 — Memory · RAG · 進階 | （社群 PR 機會） | — |

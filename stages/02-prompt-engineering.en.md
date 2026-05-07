@@ -5,6 +5,8 @@
 
 ⏱ **Time estimate**: 1-2 weeks (~5-12 hours)
 
+> 💡 Term-unfamiliar? (prompt / few-shot / CoT / system prompt / …) → see [`resources/glossary.en.md`](../resources/glossary.en.md).
+
 ## 📌 Learning Goals
 
 After this stage you will be able to:
@@ -27,21 +29,21 @@ You should already:
 3. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — academic-flavored, in-depth
 4. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — be clear and direct
 
-## 🛠 Hello-X
+## 🛠 動手練習
 
-### Hello System Prompt
+### 練習：System Prompt
 Same user message, three different system prompts. Watch the personality / output format change.
 
-### Hello Few-Shot
+### 練習：Few-Shot
 Pick a classification task. Run it 0-shot, then 3-shot. Measure accuracy difference.
 
-### Hello CoT
+### 練習：CoT
 Pick a math word problem. Compare:
 - Plain prompt
 - Plain prompt + "Let's think step by step"
 - Plain prompt + worked example showing CoT
 
-### Hello Iterative Refinement
+### 練習：Iterative Refinement
 Take a vague prompt, refine it 5 times. Track the iterations. Notice what changes improve quality.
 
 ## 🎯 Curated Projects
@@ -163,4 +165,4 @@ Can you:
 - [ ] Iteratively refine a prompt 5 times tracking each version
 - [ ] Identify when prompting is the wrong tool (and tool use is needed)
 
-If yes → proceed to [Stage 3 — Tool Use & Hello Agent](03-tool-use-and-hello-agent.md). This is the most important stage — don't rush past prompts but also don't get stuck here.
+If yes → proceed to [Stage 3 — Tool Use & Agent 入門](03-tool-use-and-hello-agent.md). This is the most important stage — don't rush past prompts but also don't get stuck here.

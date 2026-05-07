@@ -1,10 +1,12 @@
-# Stage 3 — Tool Use & Hello Agent ⭐
+# Stage 3 — Tool Use & Agent 入門 ⭐
 
 > **繁體中文** | [English](./03-tool-use-and-hello-agent.en.md)
 
 ⏱ **時間估算**：2-3 週（約 10-20 小時）
 
-這是整個學習路線最關鍵的一站。**你建過一個 agent 才算真懂 agent — Hello-X demo 不能跳。**
+> 💡 用語密集（agent / tool use / function calling / ReAct / structured output⋯）→ 翻 [`resources/glossary.md` §2](../resources/glossary.md#2-agent--工具使用)。
+
+這是整個學習路線最關鍵的一站。**你建過一個 agent 才算真懂 agent — 動手練習 不能跳。**
 
 ## 📌 學習目標
 
@@ -29,21 +31,21 @@
 3. [**OpenAI — Function Calling**](https://platform.openai.com/docs/guides/function-calling) — function calling 格式參考
 4. [**Build an agent from scratch**](https://shafiqulai.github.io/blogs/blog_3.html) — 從零打造 agent 的故事式導覽
 
-## 🛠 Hello-X Projects（必做練習、不是看就好）
+## 🛠 動手練習（不是看過就好）
 
-### Hello-1: Function Calling（一個工具、一次呼叫）
+### 練習 1：Function Calling（一個工具、一次呼叫）
 給 Claude 一個工具（假的天氣 API）跟一個問題（「台北現在有下雨嗎？」）。看 Claude 怎麼呼叫工具、拿到結果、再回答你。
 
-### Hello-2: 多工具選擇
+### 練習 2：多工具選擇
 給 Claude 三個工具（搜尋、計算機、行事曆）跟一個任務。看 Claude 怎麼挑工具，順便注意它什麼時候會挑錯。
 
-### Hello-3: 從零實作 ReAct（不用 framework）
+### 練習 3：從零實作 ReAct（不用 framework）
 用 50-80 行 Python 把 Thought → Action → Observation 迴圈寫出來。不要 LangChain、不要 LangGraph，就是純 `while not done: thought; action; observation; ...`。
 
-### Hello-4: 多步驟推理任務
+### 練習 4：多步驟推理任務
 一個需要連續呼叫 3-5 次 tool 的任務。例如：「找出台北人口，除以紐約人口，再把比例換成百分比。」每一步用不同的工具。
 
-### Hello-5: 錯誤處理
+### 練習 5：錯誤處理
 讓某個工具失敗（網路錯誤、輸入無效）。看看 agent 會怎麼處理錯誤、能不能恢復，再加上 retry 機制。
 
 ## 🎯 精選 Projects
@@ -58,7 +60,7 @@
 
 **教什麼**：Claude 支援的所有 tool use 模式 — 單工具、多工具、平行呼叫、結構化輸出抽取。
 
-**適合誰**：Hello-1 跟 Hello-2，從這裡開始。
+**適合誰**：練習 1 跟 練習 2，從這裡開始。
 
 **怎麼跑**：
 ```bash
@@ -78,9 +80,9 @@ jupyter notebook customer_service_agent.ipynb
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐⭐ |
 
-**教什麼**：Anthropic 官方的 Hello-X 起手包。三個可直接 deploy 的 agent 範本：`financial-data-analyst`（資料分析 agent）、`customer-support-agent`（客服 agent）、`computer-use-demo`（讓 Claude 操作螢幕）。
+**教什麼**：Anthropic 官方的 動手練習 起手包。三個可直接 deploy 的 agent 範本：`financial-data-analyst`（資料分析 agent）、`customer-support-agent`（客服 agent）、`computer-use-demo`（讓 Claude 操作螢幕）。
 
-**適合誰**：跑完 Hello-1 / Hello-2 之後，想看「真的應用會長什麼樣子」的官方參考。比社群實作更 canonical，部署設定也比較完整。
+**適合誰**：跑完 練習 1 / 練習 2 之後，想看「真的應用會長什麼樣子」的官方參考。比社群實作更 canonical，部署設定也比較完整。
 
 **備註**：每個範本都是獨立 sub-folder，挑一個有興趣的跑就好。Computer use demo 特別值得看 — 是少數示範 agent 操作 GUI 的官方範例。
 
@@ -96,7 +98,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **教什麼**：用本地 LLM 從零打造 agent，零 framework。ReAct、function calling、memory，全部自己寫。設計目的就是把 framework 幫你藏起來的東西攤開給你看。
 
-**適合誰**：Hello-3（從零寫 ReAct）。這是最乾淨的「不靠 framework」參考實作。
+**適合誰**：練習 3（從零寫 ReAct）。這是最乾淨的「不靠 framework」參考實作。
 
 **備註**：用本地 Ollama，不用花 API 錢。README 值得仔細讀，章節結構安排得很好。
 
@@ -113,7 +115,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **教什麼**：ReAct pattern 的多種變體與實作，針對 Gemini 最佳化。
 
-**適合誰**：Hello-3 的替代方案，如果你偏好 Gemini。涵蓋 ReAct + Reflection + Self-consistency 等變體。
+**適合誰**：練習 3 的替代方案，如果你偏好 Gemini。涵蓋 ReAct + Reflection + Self-consistency 等變體。
 
 ---
 
@@ -128,7 +130,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **教什麼**：最精簡的 ReAct agent 實作。為了學習而砍到只剩約 150 行程式碼。
 
-**適合誰**：逐行讀程式碼。Hello-3 卡住時可以拿來對照。
+**適合誰**：逐行讀程式碼。練習 3 卡住時可以拿來對照。
 
 ---
 
@@ -143,7 +145,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **教什麼**：最精簡的自我演化 agent framework — 核心約 3K 行程式碼，agent 從 seed 自己長出技能樹。支援 Claude / Gemini / Kimi / MiniMax。仍在持續開發。
 
-**適合誰**：Hello-3 / Hello-4 的替代方案，給想看「精簡但完整」framework 的讀者。介於 mattambrogi 的玩具版跟完整 LangGraph 之間的中間點。
+**適合誰**：練習 3 / 練習 4 的替代方案，給想看「精簡但完整」framework 的讀者。介於 mattambrogi 的玩具版跟完整 LangGraph 之間的中間點。
 
 ---
 
@@ -195,7 +197,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 **教什麼**：產生 Python 程式碼（而不是 JSON tool call）的 ReAct agent。設計選擇不同 — agent 直接寫程式碼當作 action。
 
-**適合誰**：跑完 Hello-3 之後。比較 CodeAct（程式碼即 action）與 JSON tool call 的差別。
+**適合誰**：跑完 練習 3 之後。比較 CodeAct（程式碼即 action）與 JSON tool call 的差別。
 
 ---
 
@@ -210,7 +212,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 **教什麼**：Smol agents（≤1000 LOC）。會寫程式碼的 agent — 執行 Python 而不是 JSON tool call。
 
-**適合誰**：Hello-5 的替代方案。特別適合本地 LLM 實驗。
+**適合誰**：練習 5 的替代方案。特別適合本地 LLM 實驗。
 
 **備註**：HF 的立場：agent 應該要小。他們的 code-action 路線跟 JSON-tool 路線在思路上很不一樣，值得對照來看。
 
@@ -226,7 +228,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 **教什麼**：framework 怎麼把 ReAct pattern 抽象化。LangGraph Studio 的範本。
 
-**適合誰**：Hello-3 之後（先自己從零寫過再來）。再來比較 framework 幫你做了哪些事。
+**適合誰**：練習 3 之後（先自己從零寫過再來）。再來比較 framework 幫你做了哪些事。
 
 ---
 
@@ -239,7 +241,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 **教什麼**：Anthropic 自己寫的指南 — 什麼時候該用 agent（vs. workflow）、常見 pattern、容易踩的坑。Stage 4 之前必讀。
 
-**適合誰**：建立觀念框架。Hello-3 寫完之後、學 framework 之前讀。
+**適合誰**：建立觀念框架。練習 3 寫完之後、學 framework 之前讀。
 
 ---
 
@@ -254,4 +256,4 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 如果可以 → 進 [Stage 4 — Agent Frameworks](04-agent-frameworks.md)。
 
-如果不行 → 把 Hello-3 再跑一次，不要跳過。如果你不懂 framework 在幫你抽象什麼，Stage 4 的那些東西看起來會像黑魔法。
+如果不行 → 把 練習 3 再跑一次，不要跳過。如果你不懂 framework 在幫你抽象什麼，Stage 4 的那些東西看起來會像黑魔法。

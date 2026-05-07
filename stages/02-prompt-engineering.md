@@ -4,6 +4,8 @@
 
 ⏱ **時間估算**：1-2 週（約 5-12 小時）
 
+> 💡 用語不熟（prompt / few-shot / CoT / system prompt⋯）→ 翻 [`resources/glossary.md`](../resources/glossary.md)。
+
 ## 📌 學習目標
 
 走完這個階段後你會：
@@ -26,21 +28,21 @@
 3. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — 學術風，深入
 4. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — 直接清楚
 
-## 🛠 Hello-X
+## 🛠 動手練習
 
-### Hello System Prompt
+### 練習：System Prompt
 同樣的 user message，三個不同的 system prompt。觀察人格 / 輸出格式怎麼變。
 
-### Hello Few-Shot
+### 練習：Few-Shot
 挑一個分類任務。先用 0-shot 跑，再用 3-shot 跑。量一下準確率差多少。
 
-### Hello CoT
+### 練習：CoT
 挑一個數學文字題，比較：
 - 純 prompt
 - 純 prompt + 「Let's think step by step」
 - 純 prompt + 一個展示 CoT 的範例
 
-### Hello Iterative Refinement
+### 練習：Iterative Refinement
 拿一個模糊的 prompt，refine 5 次。把每一輪記下來。觀察哪些改動會提升品質。
 
 ## 🎯 精選 Projects
@@ -164,4 +166,4 @@ Stage 1 已經提過。這裡特別推 `misc/prompt_caching.ipynb` 跟 `multimod
 - [ ] 反覆 refine 一個 prompt 5 次，每一版都留下記錄
 - [ ] 看出 prompt 不是對的工具的時候（這時要用 tool use）
 
-如果可以 → 進 [Stage 3 — Tool Use & Hello Agent](03-tool-use-and-hello-agent.md)。這是最重要的一個階段——prompt 不要急著跳過去，但也不要卡在這裡。
+如果可以 → 進 [Stage 3 — Tool Use & Agent 入門](03-tool-use-and-hello-agent.md)。這是最重要的一個階段——prompt 不要急著跳過去，但也不要卡在這裡。

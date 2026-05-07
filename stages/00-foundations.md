@@ -4,6 +4,8 @@
 
 ⏱ **時間估算**：1-2 週（約 5-15 小時，已具備可跳過）
 
+> 💡 **看不懂某個詞**？翻 [`resources/glossary.md`](../resources/glossary.md) 查 30 秒再回來。Stage 0 還不會碰太多 jargon，但接下來幾 stage 會。
+
 ## 何時可以跳過這個階段
 
 如果你能：
@@ -23,13 +25,13 @@
 - 用 REST API：發 GET/POST、解析 JSON、處理 auth header
 - 讀寫 YAML 跟 JSON
 
-## 🛠 Hello-X
+## 🛠 動手練習
 
-- **Hello Python** — 寫一個 Python script 呼叫 https://api.github.com/users/torvalds 並印出 follower 數量
-- **Hello git** — clone 任何一個公開 repo，做一次 commit，push 到自己的 fork
-- **Hello CLI** — 用命令列建幾個資料夾跟檔案（macOS / Linux：`mkdir project && cd project && mkdir src tests docs`；Windows PowerShell：`New-Item -ItemType Directory -Path project,project\src,project\tests,project\docs`）、執行 Python script、把輸出存到檔案
-- **Hello YAML** — 用 Python 讀一個 `.yaml` 設定檔，改一個值，再寫回去
-- **Hello API auth** — 去 [github.com/settings/tokens](https://github.com/settings/tokens) 產生一個 personal access token（給最少權限：`read:user`），呼叫 `https://api.github.com/user` 需 auth 的 endpoint，看 401（無 token）vs 200（帶 token）的差別。注意：production agent 一定會用到 API auth，所以這一題要做
+- **練習：Python** — 寫一個 Python script 呼叫 https://api.github.com/users/torvalds 並印出 follower 數量
+- **練習：git** — clone 任何一個公開 repo，做一次 commit，push 到自己的 fork
+- **練習：CLI** — 用命令列建幾個資料夾跟檔案（macOS / Linux：`mkdir project && cd project && mkdir src tests docs`；Windows PowerShell：`New-Item -ItemType Directory -Path project,project\src,project\tests,project\docs`）、執行 Python script、把輸出存到檔案
+- **練習：YAML** — 用 Python 讀一個 `.yaml` 設定檔，改一個值，再寫回去
+- **練習：API auth** — 去 [github.com/settings/tokens](https://github.com/settings/tokens) 產生一個 personal access token（給最少權限：`read:user`），呼叫 `https://api.github.com/user` 需 auth 的 endpoint，看 401（無 token）vs 200（帶 token）的差別。注意：production agent 一定會用到 API auth，所以這一題要做
 
 ## 🎯 精選資源（不是完整 Project，只是學習素材）
 

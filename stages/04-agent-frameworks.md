@@ -4,6 +4,8 @@
 
 ⏱ **時間估算**：2-3 週（約 10-15 小時）
 
+> 💡 用語不熟（framework / supervisor / worker / handoff⋯）→ 翻 [`resources/glossary.md`](../resources/glossary.md)。
+
 你已經從零打造過一個 ReAct agent（Stage 3）。現在來看 framework 到底幫你做了什麼。**挑一個深入學**，其他的瀏覽過去就好，知道什麼時候該換。
 
 ## 📌 學習目標
@@ -18,7 +20,7 @@
 
 你應該已經：
 - 跑完 Stage 3 的全部 5 個 hello-X projects
-- 從零寫過 ReAct（Hello-3）
+- 從零寫過 ReAct（練習 3）
 - 對 async Python 上手（framework 大量依賴 async）
 
 ⚠️ **Memory 預備（需要時偷看一下）**：有些 framework 功能會用到 memory 的概念 — LangGraph 用 checkpointing（狀態持久化），CrewAI 在 agent 之間傳遞任務結果（輕量 memory）。這些東西在 [Stage 6 — Memory & RAG](06-memory-rag.md) 會講清楚。你不必先讀完那篇，只是當某個 framework 功能讓你看不懂的時候，去那邊找答案就對了。
@@ -30,24 +32,24 @@
 3. [**Best Multi-Agent Frameworks 2026 comparison**](https://gurusup.com/blog/best-multi-agent-frameworks-2026) — 當前市場定位
 4. **挑一個 framework 的 Quickstart** — 選 LangGraph 或 CrewAI，把官方教學從頭跑到尾
 
-## 🛠 Hello-X Projects
+## 🛠 動手練習
 
-### Hello-1: 同一個 agent、兩個 framework
+### 練習 1：同一個 agent、兩個 framework
 用以下兩個 framework 各做一次同樣的簡單 agent（搜尋 + 摘要）：
 - LangGraph
 - CrewAI
 比較程式碼行數、debug 體驗、以及它們各自把哪些複雜度藏在哪裡。
 
-### Hello-2: 多 agent 角色分配
+### 練習 2：多 agent 角色分配
 用 CrewAI 做一個 2-3 個 agent、各自有不同角色一起完成同一個任務的 demo。（這種情境 CrewAI 最拿手。）
 
-### Hello-3: 圖式 workflow
+### 練習 3：圖式 workflow
 用 LangGraph 做一個有分支邏輯跟 human-in-the-loop checkpoint 的 workflow。（這種情境 LangGraph 最拿手。）
 
-### Hello-4: CodeAct vs JSON tool
-用 Smolagents 做一個會寫 Python 程式碼當作 action 的 agent（CodeAct pattern），跟 Hello-1 用的 JSON tool call 路線比較。問同一個問題，看兩種路線怎麼解。
+### 練習 4：CodeAct vs JSON tool
+用 Smolagents 做一個會寫 Python 程式碼當作 action 的 agent（CodeAct pattern），跟 練習 1 用的 JSON tool call 路線比較。問同一個問題，看兩種路線怎麼解。
 
-### Hello-5: 型別安全 agent
+### 練習 5：型別安全 agent
 用 Pydantic AI 做一個會回傳結構化輸出的 agent（例如：問問題回 `{ "answer": str, "confidence": float, "sources": [str] }`）。看 Pydantic 的 schema validation 怎麼防止 agent 偷懶或 hallucinate 結構。
 
 ## 🎯 精選 Projects

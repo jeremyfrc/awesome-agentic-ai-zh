@@ -22,9 +22,9 @@ After installing a CLI and running first tasks, the next question: **how do I ma
 3. [**Stage 5.1 — Claude Code Basics**](../../stages/05-claude-code-ecosystem.en.md#51--claude-code-基礎) — slash command details
 4. [**`resources/cli-agents-guide.en.md`** §"Cross-CLI portable prompt patterns"](../../resources/cli-agents-guide.en.md) — portable prompt principles
 
-## 🛠 Hello-X Projects
+## 🛠 動手練習
 
-### Hello-CLI-5: Write production CLAUDE.md
+### 動手練習 CLI-5：Write production CLAUDE.md
 Your CLAUDE.md should at minimum contain:
 - **Persona**: "You're a senior Python engineer / academic writing assistant / etc."
 - **Repo context**: what project, what stack, what conventions
@@ -34,7 +34,7 @@ Your CLAUDE.md should at minimum contain:
 
 Commit it to git. Next time a teammate clones the repo, their Claude Code auto-loads your conventions.
 
-### Hello-CLI-6: First slash command
+### 動手練習 CLI-6：First slash command
 Write `.claude/commands/review.md` (or your CLI's equivalent):
 ```markdown
 ---
@@ -50,13 +50,13 @@ Run this flow:
 ```
 After this, every `/review` runs the same flow.
 
-### Hello-CLI-7: Multi-step task decomposition
+### 動手練習 CLI-7：Multi-step task decomposition
 Give the CLI a complex task ("translate these 50 markdown files to English + add frontmatter + move to en/ subdirectory").
 - First time: throw the whole task at it → observe how it does it, where it errs
 - Second time: pre-decompose into 5 sub-tasks, give them one by one → observe the difference
 - Lesson: the CLI is like you — too-big tasks need decomposition; too-small tasks lead to over-orchestration
 
-### Hello-CLI-8: Portable prompt
+### 動手練習 CLI-8：Portable prompt
 Write a prompt that works in Claude Code. **Run the same prompt in Codex / OpenCode / Gemini CLI** — what needs to change? Common discoveries:
 - file path conventions differ (cwd vs absolute)
 - shell execution permission defaults differ

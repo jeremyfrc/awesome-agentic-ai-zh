@@ -22,17 +22,17 @@ After your CLI runs smoothly, the next step: **wire it into your real workflow**
 3. [**Stage 7 — Observability section**](../../stages/07-multi-agent-production.en.md#observability) — langfuse / Helicone / weave
 4. [**`resources/cli-agents-guide.en.md`** §"Common pitfalls"](../../resources/cli-agents-guide.en.md) — most common production issues with CLIs
 
-## 🛠 Hello-X Projects
+## 🛠 動手練習
 
-### Hello-CLI-9: MCP server connected to CLI
-Following [Stage 5.2 Hello-MCP-client](../../stages/05-claude-code-ecosystem.en.md#hello-x), connect at least one useful MCP server to your CLI:
+### 動手練習 CLI-9：MCP server connected to CLI
+Following [Stage 5.2 練習：MCP client](../../stages/05-claude-code-ecosystem.en.md#hello-x), connect at least one useful MCP server to your CLI:
 - `filesystem` server → let the CLI read files outside its default scope
 - `github` server → let it read PRs / issues directly
 - Custom server → connect your internal API / DB
 
 Success: in a CLI conversation, ask "does my PR have conflicts?" and have the CLI answer via MCP (without you opening a browser).
 
-### Hello-CLI-10: GitHub Actions + CLI
+### 動手練習 CLI-10：GitHub Actions + CLI
 Write `.github/workflows/cli-review.yml`:
 - Trigger: PR opened / synchronize
 - Run: in the GH Actions runner, execute Claude Code (or Codex), feed it `git diff` + your `.claude/commands/review.md`
@@ -42,13 +42,13 @@ Success: open a new PR, see a review comment within 1-2 minutes.
 
 > Starting points: Anthropic's official [`claude-code-action`](https://github.com/anthropics/claude-code-action); Codex has GitHub App and CLI modes.
 
-### Hello-CLI-11: Cost tracking
+### 動手練習 CLI-11：Cost tracking
 Run a daily task. **Predict** the token usage first, then actually run it and check the usage. The gap is usually big (you typically underestimate).
 - Math: input tokens + output tokens × model price each
 - Connect langfuse or Helicone ([Stage 7 Observability](../../stages/07-multi-agent-production.en.md#observability)) for tracing
 - Observe: which sub-task consumes the most tokens? Are you sending unnecessary long context?
 
-### Hello-CLI-12: Skill / plugin team sharing
+### 動手練習 CLI-12：Skill / plugin team sharing
 Package your `.claude/commands/` and `CLAUDE.md` into a plugin, publish to internal marketplace or GitHub. Teammates `claude plugin install` and get the same workflow.
 - Skill / plugin details in [Stage 5.3 + 5.4](../../stages/05-claude-code-ecosystem.en.md)
 - Template: [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official)

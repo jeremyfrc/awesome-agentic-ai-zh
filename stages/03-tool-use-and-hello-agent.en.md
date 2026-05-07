@@ -1,9 +1,11 @@
-# Stage 3 — Tool Use & Hello Agent ⭐
+# Stage 3 — Tool Use & Agent 入門 ⭐
 
 > [繁體中文](./03-tool-use-and-hello-agent.md) | **English**
 
 
 ⏱ **Time estimate**: 2-3 weeks (~10-20 hours)
+
+> 💡 Term-dense stage (agent / tool use / function calling / ReAct / structured output / …) → see [`resources/glossary.en.md` §2](../resources/glossary.en.md#2-agents--tool-use).
 
 This is the most important stage. **You don't understand agents until you've built one.** No skipping the hello-X demos.
 
@@ -30,21 +32,21 @@ You should already:
 3. [**OpenAI — Function Calling**](https://platform.openai.com/docs/guides/function-calling) — function-calling format reference
 4. [**Build an agent from scratch**](https://shafiqulai.github.io/blogs/blog_3.html) — narrative walkthrough
 
-## 🛠 Hello-X Projects (5 must-run demos)
+## 🛠 Hands-on Exercises (5 to do)
 
-### Hello-1: Function Calling (single tool, single call)
+### 練習 1：Function Calling (single tool, single call)
 Give Claude one tool (a fake weather API) and one question ("Is it raining in Taipei?"). Watch Claude call the tool, get the result, and answer.
 
-### Hello-2: Multi-Tool Selection
+### 練習 2：Multi-Tool Selection
 Give Claude three tools (search, calculator, calendar) and a task. Watch Claude select the right tool. Notice when Claude makes the wrong choice.
 
-### Hello-3: ReAct from Scratch (no framework)
+### 練習 3：ReAct from Scratch (no framework)
 Implement the Thought → Action → Observation loop in 50-80 lines of Python. No LangChain, no LangGraph. Just `while not done: thought; action; observation; ...`.
 
-### Hello-4: Multi-Step Reasoning Task
+### 練習 4：Multi-Step Reasoning Task
 A task that requires 3-5 tool calls in sequence. E.g., "Find the population of Taipei, then divide by the population of New York, and convert the ratio to percent." Each step uses a different tool.
 
-### Hello-5: Error Handling
+### 練習 5：Error Handling
 Make a tool fail (network error, invalid input). Watch how the agent recovers (or doesn't). Add retry logic.
 
 ## 🎯 Curated Projects
@@ -59,7 +61,7 @@ Make a tool fail (network error, invalid input). Watch how the agent recovers (o
 
 **What it teaches**: Every tool-use pattern Claude supports — single tool, multi-tool, parallel calls, structured output extraction.
 
-**Best for**: Hello-1 and Hello-2. Start here.
+**Best for**: 練習 1 and 練習 2. Start here.
 
 **Run it**:
 ```bash
@@ -79,9 +81,9 @@ jupyter notebook customer_service_agent.ipynb
 | License | MIT |
 | Recommendation | ⭐⭐⭐⭐⭐ |
 
-**What it teaches**: Anthropic's official Hello-X starter kit. Three deployable agent templates: `financial-data-analyst` (data analysis agent), `customer-support-agent`, and `computer-use-demo` (Claude operating a screen).
+**What it teaches**: Anthropic's official 動手練習 starter kit. Three deployable agent templates: `financial-data-analyst` (data analysis agent), `customer-support-agent`, and `computer-use-demo` (Claude operating a screen).
 
-**Best for**: After Hello-1/Hello-2, when you want to see "what does a real application look like" from the canonical source. More polished than community implementations, with proper deployment setup.
+**Best for**: After 練習 1/練習 2, when you want to see "what does a real application look like" from the canonical source. More polished than community implementations, with proper deployment setup.
 
 **Notes**: Each template is a self-contained sub-folder — pick one and run it. The computer-use demo is especially worth studying as one of the few official examples of a GUI-operating agent.
 
@@ -97,7 +99,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **What it teaches**: Build agents with local LLMs and ZERO frameworks. ReAct, function calling, memory — all from scratch. Designed to demystify what frameworks hide.
 
-**Best for**: Hello-3 (ReAct from scratch). This is the cleanest "no-framework" reference.
+**Best for**: 練習 3 (ReAct from scratch). This is the cleanest "no-framework" reference.
 
 **Notes**: Uses local Ollama, so works without API costs. Read the README carefully — the pedagogical structure is excellent.
 
@@ -114,7 +116,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **What it teaches**: ReAct pattern variations and implementations, optimized for Gemini.
 
-**Best for**: Hello-3 alternative if you prefer Gemini. Covers ReAct + Reflection + Self-consistency variants.
+**Best for**: 練習 3 alternative if you prefer Gemini. Covers ReAct + Reflection + Self-consistency variants.
 
 ---
 
@@ -129,7 +131,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **What it teaches**: Minimal ReAct agent implementation. Ultra-stripped-down (~150 lines) for learning.
 
-**Best for**: Reading the source line-by-line. Use as a reference when stuck on Hello-3.
+**Best for**: Reading the source line-by-line. Use as a reference when stuck on 練習 3.
 
 ---
 
@@ -144,7 +146,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **What it teaches**: Minimal self-evolving agent framework — core ~3K lines of code, agent grows skill tree from a seed. Supports Claude / Gemini / Kimi / MiniMax. Active development.
 
-**Best for**: Hello-3 / Hello-4 alternative for readers who want a more "minimal but full" framework reference. Good middle ground between mattambrogi's toy and full LangGraph.
+**Best for**: 練習 3 / 練習 4 alternative for readers who want a more "minimal but full" framework reference. Good middle ground between mattambrogi's toy and full LangGraph.
 
 ---
 
@@ -196,7 +198,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 **What it teaches**: ReAct agent that generates Python code instead of JSON tool calls. Different design choice — agent writes code as actions.
 
-**Best for**: After Hello-3. Compare CodeAct (code as action) vs JSON tool calls.
+**Best for**: After 練習 3. Compare CodeAct (code as action) vs JSON tool calls.
 
 ---
 
@@ -211,7 +213,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 **What it teaches**: Smol agents (≤1000 LOC). Code-writing agents that execute Python instead of JSON tool calls.
 
-**Best for**: Hello-5 alternative. Especially good for local LLM experimentation.
+**Best for**: 練習 5 alternative. Especially good for local LLM experimentation.
 
 **Notes**: HF's stance: agents should be small. Their code-action approach is intellectually distinct from JSON-tool approach. Worth comparing.
 
@@ -227,7 +229,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 **What it teaches**: How a framework abstracts the ReAct pattern. Template for LangGraph Studio.
 
-**Best for**: After Hello-3 (build from scratch first). Then compare what frameworks do for you.
+**Best for**: After 練習 3 (build from scratch first). Then compare what frameworks do for you.
 
 ---
 
@@ -240,7 +242,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 **What it teaches**: Anthropic's own guide to when to use agents (vs. workflows), common patterns, and pitfalls. Required reading before Stage 4.
 
-**Best for**: Conceptual framing. Read after Hello-3 but before learning frameworks.
+**Best for**: Conceptual framing. Read after 練習 3 but before learning frameworks.
 
 ---
 
@@ -255,4 +257,4 @@ Can you:
 
 If yes → proceed to [Stage 4 — Agent Frameworks](04-agent-frameworks.md).
 
-If no → run Hello-3 again. Don't skip it. The frameworks in Stage 4 will mystify you if you don't understand what they're abstracting.
+If no → run 練習 3 again. Don't skip it. The frameworks in Stage 4 will mystify you if you don't understand what they're abstracting.

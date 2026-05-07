@@ -4,6 +4,8 @@
 
 ⏱ **時間估算**：2-4 週（約 15-30 小時）
 
+> 💡 用語密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent)。
+
 最後一個階段。你正從「我會做 agent」走向「我能在 production 跑起來，多個 agent 協作、有 eval、有 observability、會 deploy」。
 
 ## 📌 學習目標
@@ -21,21 +23,21 @@
 3. [**Anthropic — Message Batches API**](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) — 非同步 batch job
 4. **任一 eval framework 的文件** — promptfoo 或 LangSmith 或 weave
 
-## 🛠 Hello-X Projects（必跑、不是看就好）
+## 🛠 動手練習（必跑、不是看就好）
 
-### Hello-1: Multi-Agent 辯論
+### 練習 1：Multi-Agent 辯論
 兩個 agent 辯論一個題目（例如「該用 Python 還是 Rust 寫 backend」），第三個 agent 當裁判。觀察辯論收斂或分歧的 pattern。
 
-### Hello-2: Eval
+### 練習 2：Eval
 替你前面的 agent 寫一份 eval，跑 N 次量成功率。把「我用眼睛看一下」的習慣換掉。
 
-### Hello-3: Observability
+### 練習 3：Observability
 把 LangSmith、Helicone、或 weave 接上一個 agent，看完整 trace。理解「沒 observability 的 agent debug = 黑盒」。
 
-### Hello-4: SDK 進階
+### 練習 4：SDK 進階
 在同一次呼叫裡用 streaming + prompt caching + tool use。看成本怎麼降下來。
 
-### Hello-5: Deploy
+### 練習 5：Deploy
 把一個 agent 包進 Docker，deploy 到雲端（任何 provider 都行）。學會把 prototype 變成可以給別人跑的東西。
 
 ## 🎯 精選 Projects

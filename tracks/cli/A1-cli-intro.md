@@ -20,7 +20,7 @@
 ## 🚪 進入條件
 
 你應該已經：
-- 跑過 Stage 0 的 Hello-CLI（會用命令列）
+- 跑過 Stage 0 的 練習：CLI（會用命令列）
 - 有 Claude / OpenAI / Google 任一個帳號（不一定是付費）
 - 對 prompt 寫法基本上手（Stage 2）
 
@@ -30,12 +30,12 @@
 2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安裝指南
 3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安裝跟認證流程
 
-## 🛠 Hello-X Projects（必跑、不是看就好）
+## 🛠 動手練習（必跑、不是看就好）
 
-### Hello-CLI-1: 安裝 + 第一次跑
+### 動手練習 CLI-1：安裝 + 第一次跑
 照你選的 CLI 的 quickstart 安裝。第一個 prompt 不要寫「hello world」——直接給它一個你今天本來就要做的事，譬如：「整理我 Downloads 資料夾，把 PDF 全部 move 到 ~/Documents/PDFs」。觀察它怎麼分解任務、要哪些確認。
 
-### Hello-CLI-2: CLI 內建的 system prompt 檔
+### 動手練習 CLI-2：CLI 內建的 system prompt 檔
 - Claude Code → 寫一個 `CLAUDE.md` 在 repo 根目錄
 - Codex → 寫 `AGENTS.md`
 - Gemini CLI → 寫 `GEMINI.md`
@@ -43,10 +43,10 @@
 
 寫進去 3 件事：「你的個性 / 偏好的 code style / 不能做的事」。再跑一個任務，觀察行為差異。
 
-### Hello-CLI-3: 第二個 CLI 並用
+### 動手練習 CLI-3：第二個 CLI 並用
 裝第二個 CLI（建議 Codex 或 OpenCode 當 backup）。用同一個 prompt 跑，比較輸出風格、速度、cost。**不是要選一個贏家——是要學「不同 CLI 解同一個問題的角度不同」**。
 
-### Hello-CLI-4: 認證細節
+### 動手練習 CLI-4：認證細節
 故意把 API key 弄錯一個字元，看 CLI 怎麼報錯。再做一次「正確 key 但 model 名稱錯」的實驗。Production 用一定會遇到 auth 問題，先在這裡踩過。
 
 ## 🎯 精選 Projects
@@ -93,7 +93,7 @@
 
 如果可以 → 進 [A2 — CLI Workflow Patterns](A2-cli-workflow.md)。
 
-如果不行 → 別跳。CLI 工具會用得 sloppy 不會用得 productive；A1 的 Hello-CLI-1/2 至少各跑 3 次再走。
+如果不行 → 別跳。CLI 工具會用得 sloppy 不會用得 productive；A1 的 動手練習 CLI-1/2 至少各跑 3 次再走。
 
 ## 💡 給 Track A 學習者的提醒
 
