@@ -1,6 +1,6 @@
 # Stage 5 — Claude Code 生態系 ⭐⭐
 
-> [English](./05-claude-code-ecosystem.en.md) | **繁體中文**
+> **繁體中文** | [English](./05-claude-code-ecosystem.en.md)
 
 ⏱ **時間估算**：3-4 週（約 15-25 小時）
 

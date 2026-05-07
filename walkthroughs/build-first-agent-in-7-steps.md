@@ -1,6 +1,4 @@
-<div align="right">
-  <a href="./build-first-agent-in-7-steps.en.md">English</a> | <strong>繁體中文</strong>
-</div>
+> **繁體中文** | [English](./build-first-agent-in-7-steps.en.md)
 
 # 7 步打造你的第一個 AI Agent
 

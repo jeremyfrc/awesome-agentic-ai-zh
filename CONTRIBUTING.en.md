@@ -1,5 +1,8 @@
 # Contributing
 
+> [繁體中文](./CONTRIBUTING.md) | **English**
+
+
 Thanks for considering a contribution. **This is a curated learning roadmap, not an exhaustive catalog. Quality > quantity.**
 
 This repo is **designed for community-driven improvement** — one person can't keep pace with the AI agent ecosystem alone. The maintainer's quarterly review isn't enough; more eyes are needed.

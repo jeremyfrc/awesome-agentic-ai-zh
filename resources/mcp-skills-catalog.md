@@ -1,6 +1,6 @@
 # MCP / Skills 整合目錄
 
-> [English](./mcp-skills-catalog.en.md) | **繁體中文**
+> **繁體中文** | [English](./mcp-skills-catalog.en.md)
 
 > 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 41 個分類整理過的 MCP server / Claude Skill / 整合範例。
 

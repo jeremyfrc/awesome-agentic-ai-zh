@@ -1,6 +1,6 @@
 # A1 — CLI Agent 入門 + 選擇
 
-> [English](./A1-cli-intro.en.md) | **繁體中文**
+> **繁體中文** | [English](./A1-cli-intro.en.md)
 
 > [← 回主路線 README](../../README.md) · **Track A: CLI Power User** 第 1 站
 

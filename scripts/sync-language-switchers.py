@@ -25,6 +25,13 @@ import sys
 from pathlib import Path
 from typing import Optional
 
+# Force UTF-8 stdout on Windows (cp950 default can't handle CJK)
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 # 哪些 .md 檔需要 switcher（zh-TW canonical）

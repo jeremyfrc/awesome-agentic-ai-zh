@@ -1,5 +1,8 @@
 # Stage 2 — Prompt Engineering
 
+> [繁體中文](./02-prompt-engineering.md) | **English**
+
+
 ⏱ **Time estimate**: 1-2 weeks (~5-12 hours)
 
 ## 📌 Learning Goals

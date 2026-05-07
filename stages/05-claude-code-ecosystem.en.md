@@ -1,5 +1,8 @@
 # Stage 5 — Claude Code Ecosystem ⭐⭐
 
+> [繁體中文](./05-claude-code-ecosystem.md) | **English**
+
+
 ⏱ **Time estimate**: 3-4 weeks (~15-25 hours)
 
 > 📌 **This stage is used by both tracks**:

@@ -1,5 +1,8 @@
 # Stage 6 — Memory · RAG · Advanced
 
+> [繁體中文](./06-memory-rag.md) | **English**
+
+
 ⏱ **Time estimate**: 2 weeks (~10 hours)
 
 Agents that don't remember past interactions are not useful. RAG (Retrieval-Augmented Generation) is the standard approach. This stage covers both.

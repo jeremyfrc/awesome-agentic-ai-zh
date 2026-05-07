@@ -1,5 +1,8 @@
 # Stage 7 — Multi-Agent · Production
 
+> [繁體中文](./07-multi-agent-production.md) | **English**
+
+
 ⏱ **Time estimate**: 2-4 weeks (~15-30 hours)
 
 The final stage. You're moving from "I can build agents" to "I can run them in production with multiple agents coordinating, evaluation, observability, and deployment."

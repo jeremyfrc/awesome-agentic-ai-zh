@@ -1,5 +1,8 @@
 # Stage 1 — LLM Fundamentals
 
+> [繁體中文](./01-llm-basics.md) | **English**
+
+
 ⏱ **Time estimate**: 1 week (~5-8 hours)
 
 ## 📌 Learning Goals

@@ -1,5 +1,8 @@
 # For Knowledge Workers — Specialized Branch
 
+> [繁體中文](./for-knowledge-worker.md) | [简体中文](./for-knowledge-worker.zh-CN.md) | **English**
+
+
 > [← Back to main path README](../README.en.md) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to office / knowledge work.
 
 ## Use Cases

@@ -1,5 +1,8 @@
 # Stage 0 — Foundations
 
+> [繁體中文](./00-foundations.md) | **English**
+
+
 ⏱ **Time estimate**: 1-2 weeks (~5-15 hours, can skip if you have these)
 
 ## When to skip this stage

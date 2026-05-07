@@ -1,5 +1,8 @@
 # For Researchers — Specialized Branch
 
+> [繁體中文](./for-researcher.md) | [简体中文](./for-researcher.zh-CN.md) | **English**
+
+
 > [← Back to main path README](../README.en.md) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to research workflows.
 
 ## Use Cases

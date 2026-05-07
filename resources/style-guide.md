@@ -1,6 +1,4 @@
-<div align="right">
-  <a href="./style-guide.en.md">English</a> | <strong>繁體中文</strong>
-</div>
+> **繁體中文** | [English](./style-guide.en.md)
 
 # `awesome-agentic-ai-zh` 風格指南
 

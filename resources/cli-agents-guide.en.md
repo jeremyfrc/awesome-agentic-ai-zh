@@ -1,6 +1,4 @@
-<div align="right">
-  <strong>English</strong> | <a href="./cli-agents-guide.md">繁體中文</a>
-</div>
+> [繁體中文](./cli-agents-guide.md) | **English**
 
 # CLI Agents Comparison Guide
 

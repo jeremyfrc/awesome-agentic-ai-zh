@@ -1,5 +1,8 @@
 # Stage 4 — Agent Frameworks
 
+> [繁體中文](./04-agent-frameworks.md) | **English**
+
+
 ⏱ **Time estimate**: 2-3 weeks (~10-15 hours)
 
 You've built a ReAct agent from scratch (Stage 3). Now learn what frameworks do for you. **Pick one to deeply learn**, browse the others to know when to switch.

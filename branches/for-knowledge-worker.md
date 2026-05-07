@@ -1,6 +1,6 @@
 # 給知識工作者 — 專業分支
 
-> [English](./for-knowledge-worker.en.md) | **繁體中文**
+> **繁體中文** | [简体中文](./for-knowledge-worker.zh-CN.md) | [English](./for-knowledge-worker.en.md)
 
 > [← 回主路線 README](../README.md) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到辦公室 / 知識工作上。
 

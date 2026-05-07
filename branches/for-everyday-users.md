@@ -1,6 +1,6 @@
 # 給日常使用者 — 專業分支
 
-> [English](./for-everyday-users.en.md) | **繁體中文**
+> **繁體中文** | [简体中文](./for-everyday-users.zh-CN.md) | [English](./for-everyday-users.en.md)
 
 > [← 回主路線 README](../README.md) · 你**不一定要走完整條主幹**才能從這裡開始——這條分支是給「**只想 USE AI、不一定要 BUILD agent**」的人。
 

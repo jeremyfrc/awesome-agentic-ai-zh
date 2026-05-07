@@ -1,6 +1,6 @@
 # A1 — CLI Agent Intro & Selection
 
-> **English** | [繁體中文](./A1-cli-intro.md)
+> [繁體中文](./A1-cli-intro.md) | **English**
 
 > [← Back to main path README](../../README.en.md) · **Track A: CLI Power User** — Stop 1
 

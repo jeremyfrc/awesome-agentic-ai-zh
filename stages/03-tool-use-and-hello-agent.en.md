@@ -1,5 +1,8 @@
 # Stage 3 — Tool Use & Hello Agent ⭐
 
+> [繁體中文](./03-tool-use-and-hello-agent.md) | **English**
+
+
 ⏱ **Time estimate**: 2-3 weeks (~10-20 hours)
 
 This is the most important stage. **You don't understand agents until you've built one.** No skipping the hello-X demos.

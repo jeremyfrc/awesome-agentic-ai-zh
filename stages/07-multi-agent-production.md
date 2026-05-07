@@ -1,6 +1,6 @@
 # Stage 7 — Multi-Agent · Production
 
-> [English](./07-multi-agent-production.en.md) | **繁體中文**
+> **繁體中文** | [English](./07-multi-agent-production.en.md)
 
 ⏱ **時間估算**：2-4 週（約 15-30 小時）
 

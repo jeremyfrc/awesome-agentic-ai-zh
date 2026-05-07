@@ -1,6 +1,6 @@
 # Stage 3 — Tool Use & Hello Agent ⭐
 
-> [English](./03-tool-use-and-hello-agent.en.md) | **繁體中文**
+> **繁體中文** | [English](./03-tool-use-and-hello-agent.en.md)
 
 ⏱ **時間估算**：2-3 週（約 10-20 小時）
 
