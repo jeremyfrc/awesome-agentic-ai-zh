@@ -244,9 +244,9 @@ Claude replies (with a tool call icon): Echo: hello world
 
 ### Further Reading
 
-- See [Stage 5.2](../stages/05-claude-code-ecosystem.md#52--mcpmodel-context-protocol-基礎) for a full introduction to MCP.
+- See [Stage 5.2](../stages/05-claude-code-ecosystem.en.md#52--mcp-model-context-protocol-foundation) for a full introduction to MCP.
 - Refer to the official examples in [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) (e.g., filesystem, github, sqlite, time).
-- For production servers, see [Stage 5.2 Hello-3](../stages/05-claude-code-ecosystem.md#-動手練習) and the `~/.claude/skills/` examples in [`anthropics/claude-code`](https://github.com/anthropics/claude-code).
+- For production servers, see [Stage 5.2 "Practice: MCP in production"](../stages/05-claude-code-ecosystem.en.md#52--mcp-model-context-protocol-foundation) and the `~/.claude/skills/` examples in [`anthropics/claude-code`](https://github.com/anthropics/claude-code).
 
 ---
 
