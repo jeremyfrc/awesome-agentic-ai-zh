@@ -37,8 +37,8 @@ After the main path, you go from "**LLM user**" to "**agent system builder**" �
 ## 📚 Quick Start
 
 ### Read online
-- **[GitHub README (you're here)](README.en.md)** — main entry point
-- **[7-Stage Learning Map](#️-the-7-stage-learning-map)** — where to start
+- **[Learning Map (Two Tracks)](#️-learning-map-two-tracks)** — read this section to decide Track A or Track B
+- **[Stage 0 Foundations](stages/00-foundations.en.md)** — already know Python / git / API? Skip straight to Stage 1
 
 ### Local clone
 ```bash
@@ -56,7 +56,7 @@ cd awesome-agentic-ai-zh
 - 🌏 **Bilingual** — zh-TW canonical, English mirror
 - 🎓 **Beyond frameworks: Claude Code ecosystem** — MCP / Skills / Plugins / SDK full stack
 - 🔬 **5 specialized branches** — researcher / developer / teacher / knowledge worker / **everyday user**
-- ⏱️ **Honest time estimate** — 14-19 weeks minimum, 5-6 months realistic (5-8 hr/week part-time)
+- ⏱️ **Time commitment, stated upfront** — 14-19 weeks minimum, 5-6 months realistic (5-8 hr/week part-time)
 
 ---
 
@@ -187,9 +187,15 @@ PR process and style rules: [CONTRIBUTING.md](CONTRIBUTING.md) + [resources/styl
 - [**Datawhale Hello-Agents**](https://github.com/datawhalechina/hello-agents) — model for systematic agent tutorial structure; inspired our chapter + progress design
 - [**Datawhale community**](https://github.com/datawhalechina) — landmark Chinese ML learning community; multiple anchor projects come from them
 
-### Counterpart awesome lists
+### Related projects
 
-- `wong2/awesome-mcp-servers`, `punkpeye/awesome-mcp-servers`, `hesreallyhim/awesome-claude-code` — solid flat catalogs; this repo's differentiation is "structured path"
+Other lists in the same space — useful to browse alongside this repo when hunting for specific tools:
+
+- [`wong2/awesome-mcp-servers`](https://github.com/wong2/awesome-mcp-servers) — categorized MCP server catalog
+- [`punkpeye/awesome-mcp-servers`](https://github.com/punkpeye/awesome-mcp-servers) — another MCP server catalog
+- [`hesreallyhim/awesome-claude-code`](https://github.com/hesreallyhim/awesome-claude-code) — Claude Code tools & plugins list
+
+These are pure catalogs (browse and pick). This repo is different in that it has a **learning order from Stage 0 all the way to production**.
 
 ### Personal
 

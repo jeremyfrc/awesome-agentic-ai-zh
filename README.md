@@ -50,8 +50,8 @@
 ## 📚 快速開始
 
 ### 線上閱讀
-- **[GitHub README（你正在看）](README.md)** — 主入口、整體導航
-- **[7-stage 學習地圖](#7-階段學習地圖)** — 從哪開始學
+- **[學習地圖（兩條軌道）](#️-學習地圖兩條軌道)** — 看完這節決定走 Track A 還 Track B
+- **[Stage 0 基礎準備](stages/00-foundations.md)** — 已經會 Python / git / API 的人可以直接跳 Stage 1
 
 ### 本地下載
 ```bash
@@ -69,7 +69,7 @@ cd awesome-agentic-ai-zh
 - 🌏 **中文 / 英文雙語** — 繁中為主、英文版完整對照
 - 🎓 **不只「框架」、還有「Claude Code 生態」** — MCP / Skills / Plugins / SDK 完整堆疊
 - 🔬 **5 條進階分支** — 研究員 / 開發者 / 老師 / 知識工作者 / **日常使用者** path
-- ⏱️ **誠實時程** — 主幹最少 14-19 週、現實 5-6 個月（每週 5-8 hr）
+- ⏱️ **時程說明寫清楚** — 主幹最少 14-19 週、現實 5-6 個月（每週 5-8 hr）
 
 ---
 
@@ -200,9 +200,15 @@ PR 流程跟 style 規範見 [CONTRIBUTING.md](CONTRIBUTING.md) + [resources/sty
 - [**Datawhale Hello-Agents**](https://github.com/datawhalechina/hello-agents) — 教學式系統性 agent tutorial 的範本，啟發本 repo 的 章節 + 進度 結構
 - [**Datawhale 整個社群**](https://github.com/datawhalechina) — 中文 ML 共學社群的標竿，多個 anchor projects 來自他們
 
-### 對位的 awesome lists
+### 其他相關專案
 
-- `wong2/awesome-mcp-servers`、`punkpeye/awesome-mcp-servers`、`hesreallyhim/awesome-claude-code` — 平鋪式 catalog 的好對手；本 repo 的差異化是「結構化路徑」
+同主題、不同切入角度的清單，搜資源時可以一起用：
+
+- [`wong2/awesome-mcp-servers`](https://github.com/wong2/awesome-mcp-servers) — MCP server 清單，按分類整理
+- [`punkpeye/awesome-mcp-servers`](https://github.com/punkpeye/awesome-mcp-servers) — 另一份 MCP server 清單
+- [`hesreallyhim/awesome-claude-code`](https://github.com/hesreallyhim/awesome-claude-code) — Claude Code 相關工具與 plugin 清單
+
+這些是純清單形式（看到再挑），本 repo 的不同點是有「**從 Stage 0 一路走到 production 的學習順序**」。
 
 ### 個人
 
