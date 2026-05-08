@@ -66,7 +66,7 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 >
 > 想要 step-by-step 上手？见 [`tracks/cli/A1-cli-intro.zh-CN.md`](../tracks/cli/A1-cli-intro.zh-CN.md)（Track A 第一站，从安装到第一个任务）。
 >
-> 想把 CLI agent 接到你的 Notion / Obsidian / Excel / Google 文件等日常工具？见 [`resources/mcp-skills-catalog.zh-CN.md`](../resources/mcp-skills-catalog.zh-CN.md)（按分类整理 54 个 MCP server / Skill）。
+> 想把 CLI agent 接到你的 Notion / Obsidian / Excel / Google 文件等日常工具？见 [`resources/mcp-skills-catalog.zh-CN.md`](../resources/mcp-skills-catalog.zh-CN.md)（按分类整理 57 个 MCP server / Skill）。
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
 ★ 120k+ — Anthropic 官方的 CLI agent。能读写文件、执行指令、做多步骤任务。**日常用户最容易上手的 CLI 工具**。

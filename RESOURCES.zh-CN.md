@@ -60,7 +60,7 @@
 
 - [**leemysw/feishu-docx**](https://github.com/leemysw/feishu-docx) ★ 190+ — 飞书（Lark）docs / sheet / bitable ↔ Markdown，含 Claude Skills ***支持***
 
-> 上面只是 highlight。**完整 54 个集成***的分类***目录**（含***数据***库、浏览器***自动***化、Figma、Excalidraw、Cloudflare、Stripe、***学术******写作*** / Multi-LLM delegation 等）在 [`resources/mcp-skills-catalog.zh-CN.md`](resources/mcp-skills-catalog.zh-CN.md)。
+> 上面只是 highlight。**完整 57 个集成***的分类***目录**（含***数据***库、浏览器***自动***化、Figma、Excalidraw、Cloudflare、Stripe、***学术******写作*** / Multi-LLM delegation 等）在 [`resources/mcp-skills-catalog.zh-CN.md`](resources/mcp-skills-catalog.zh-CN.md)。
 
 > 想找更多 MCP server catalog？看 [`wong2/awesome-mcp-servers`](https://github.com/wong2/awesome-mcp-servers) / [`punkpeye/awesome-mcp-servers`](https://github.com/punkpeye/awesome-mcp-servers)（***按***分类***整理***）。**Canva** 的***官方*** MCP ***还***在 early access，社群***版本******不稳定***，等***成熟******后***再补上。
 

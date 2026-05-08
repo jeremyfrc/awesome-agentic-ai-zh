@@ -10,7 +10,7 @@
 |---|---|---|---|
 | [`glossary.md`](glossary.md) | **30 秒查詞典** | 看 stage 內文時遇到 LLM / RAG / token / agent / vector DB / streaming / batch API 不知道什麼意思 | ~210 |
 | [`cli-agents-guide.md`](cli-agents-guide.md) | **6 個 CLI agent 比較** | 第一次選 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider）不知道挑哪個 | ~134 |
-| [`mcp-skills-catalog.md`](mcp-skills-catalog.md) | **54 個整合 catalog** | 想把 Claude Code 接 Notion / Obsidian / Excel / Postgres / Slack / 等等實際工具 | ~775 |
+| [`mcp-skills-catalog.md`](mcp-skills-catalog.md) | **57 個整合 catalog** | 想把 Claude Code 接 Notion / Obsidian / Excel / Postgres / Slack / 等等實際工具 | ~775 |
 | [`schema-design-cheatsheet.md`](schema-design-cheatsheet.md) | **function schema 設計 5 規則 + 5 anti-pattern** | 寫 tool schema / MCP server schema / function calling，發現 LLM 選錯 tool / 傳錯參數 | ~159 |
 | [`cookbook.md`](cookbook.md) | **5 個 step-by-step recipe** | 想 30-50 分鐘做出第一個 Skill / MCP server / 接 Office / 接 NotebookLM / 接 Zotero | ~510 |
 | [`style-guide.md`](style-guide.md) | **送 PR 前的格式 / 用詞規範** | 要對 repo 貢獻、寫 entry / 翻譯 | ~338 |
@@ -31,7 +31,7 @@
 
 ### 🔌 我要把 Claude Code 接 X 工具（Notion / Excel / Postgres 等）
 
-→ [`mcp-skills-catalog.md`](mcp-skills-catalog.md)（54 個整合分 14 類）
+→ [`mcp-skills-catalog.md`](mcp-skills-catalog.md)（57 個整合分 14 類）
 
 ### 🍳 我想動手寫第一個 Skill / MCP server / 接 Word 等
 

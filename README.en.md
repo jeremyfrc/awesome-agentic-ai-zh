@@ -167,7 +167,7 @@ Common quick links:
 
 - 📖 **Don't know a term?** (LLM, agent, RAG, token, MCP, Skill, vector DB, …) → [`resources/glossary.en.md`](resources/glossary.en.md) — 30+ common terms, 30–80-word definition each + which stage covers it
 - 🔑 **What MCP / Skills / Plugins mean** → [RESOURCES.en.md §three core terms](RESOURCES.en.md#three-core-terms-mcp--skills--plugins)
-- 🔌 **Connect to Notion / Obsidian / Excel / GitHub / etc.** → [RESOURCES.en.md §daily-tool integrations](RESOURCES.en.md#daily-tool-integrations-mcp-servers--skills) or full 54-entry catalog [`resources/mcp-skills-catalog.en.md`](resources/mcp-skills-catalog.en.md)
+- 🔌 **Connect to Notion / Obsidian / Excel / GitHub / etc.** → [RESOURCES.en.md §daily-tool integrations](RESOURCES.en.md#daily-tool-integrations-mcp-servers--skills) or full 57-entry catalog [`resources/mcp-skills-catalog.en.md`](resources/mcp-skills-catalog.en.md)
 - 🔬 **Research workflow + multi-LLM delegation pair** → [RESOURCES.en.md §research workflow](RESOURCES.en.md#research-workflow-by-the-repo-maintainer)
 - 📚 **Topic-based awesome lists / Chinese community** → [RESOURCES.en.md §topic-based](RESOURCES.en.md#topic-based-awesome-lists)
 

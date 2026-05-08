@@ -14,7 +14,7 @@
 
 ## 精選 Projects
 
-> 💡 **想把 AI agent 接到 Notion / Gmail / Outlook / Slack / Excel / 飛書？** 54 個常用 MCP server / Skill 整合在 [`resources/mcp-skills-catalog.md`](../resources/mcp-skills-catalog.md)（按使用情境分類）。下面這節保留 workflow / 整合平台級的工具。
+> 💡 **想把 AI agent 接到 Notion / Gmail / Outlook / Slack / Excel / 飛書？** 57 個常用 MCP server / Skill 整合在 [`resources/mcp-skills-catalog.md`](../resources/mcp-skills-catalog.md)（按使用情境分類）。下面這節保留 workflow / 整合平台級的工具。
 
 ### 工作流工具
 
