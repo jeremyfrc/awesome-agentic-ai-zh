@@ -20,12 +20,15 @@ jobs:
 
       - name: Check zh-CN slips in zh-TW canonical files
         run: |
-          # 只掃「公開展示」的 zh 內容檔。resources/style-guide.md 跟 .github/ 是 policy doc，
-          # 必然包含禁用詞做為「不要這樣寫」的範例，所以不掃。
+          # 只掃 zh-TW canonical 檔。
+          #   - --exclude="*.en.md"     skip 英文 companion
+          #   - --exclude="*.zh-CN.md"  skip 簡中 companion（裡面合法包含這些詞）
+          #   resources/style-guide.md 跟 .github/ 是 policy doc，必然包含禁用詞做為
+          #   「不要這樣寫」的範例，所以這個 step 也不掃 resources/。
           BANNED=("教程" "視頻" "軟件" "代碼" "用戶" "網絡" "默認" "函数" "演算法" "算法" "程序")
           FOUND=0
           for word in "${BANNED[@]}"; do
-            if grep -rn --include="*.md" --exclude="*.en.md" \
+            if grep -rn --include="*.md" --exclude="*.en.md" --exclude="*.zh-CN.md" \
                   -F "$word" stages branches walkthroughs README.md CONTRIBUTING.md CONTRIBUTORS.md 2>/dev/null \
                   | grep -v "(zh-CN)" \
                   | grep -v "zh-CN repo" \
