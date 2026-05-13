@@ -3,6 +3,8 @@
 # 練習 5：Long-term Memory（跨輪對話記得事情）
 
 對應 [Stage 6 — Memory & RAG](../../../stages/06-memory-rag.md) 練習 5。
+> 🎓 **學習模式**：這份 `starter.py` 是**完整解答**、不是 TODO skeleton。建議用**主動模式**——`mv starter.py starter_reference.py`、看 signature 不看 body、自己重寫一份 `starter.py`、跑 `python test.py` 驗證；卡 20 分鐘再回去對照 reference。完整方法論看 [`docs/HOW_TO_USE.md`](../../../docs/HOW_TO_USE.md)。
+
 
 ## 任務
 
