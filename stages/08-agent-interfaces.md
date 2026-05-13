@@ -286,6 +286,262 @@ agent 收到任務
 
 → Python first、TypeScript 之後。**Anthropic Claude Agent SDK 早就有類似抽象**——OpenAI 終於追上。
 
+## 🧭 Track A 怎麼用（CLI Power User 視角）
+
+**Reader pain**：Track A 想「**我怎麼用** Claude Computer Use 把桌面任務委派出去」、不是「怎麼 build」。
+
+### 1. 在 Claude Code 內接 Computer Use / Browser MCP
+
+**Why MCP 路線**：你已熟 Claude Code（[Stage 5](05-claude-code-ecosystem.md)），新功能能透過 MCP 接、不用換工具。
+
+- **Computer-use MCP**（社群實作多版本）：在 `.mcp.json` 加 server 後、Claude Code 內就能叫「截圖 → 看 → 操作」
+- **Browser MCP**：[Playwright MCP](https://github.com/modelcontextprotocol/servers) 等、Claude Code 可開瀏覽器跑 web 任務
+
+### 2. 用 Codex desktop 在 background 跑
+
+**Why background mode**：[OpenAI Codex desktop (April 2026)](https://openai.com/index/codex-for-almost-everything/) 預設不搶 cursor、agent 在後台跑、你繼續做別的事——**多個 agent workflow 可平行**。
+
+- 適合：「分析 Q3 財報、整理成 slide、發 Slack」這種**長時間 + 不需要盯著看**的任務
+- 跟 Claude Code 互補：Claude Code 做 code 任務、Codex desktop 做跨 app workflow
+
+### 3. 用 Atlas / Comet / Gemini in Chrome 跑 web 任務
+
+| 場景 | 推薦 | 理由 |
+|---|---|---|
+| 研究 / 跨頁面 synthesis | **Comet** | research-tuned、citation-backed |
+| ChatGPT user / Agent Mode | **Atlas** | Plus/Pro/Business 內建 |
+| Chrome / Google ecosystem | **Gemini in Chrome** | Auto Browse + Skills、enterprise DLP |
+| **避開**：Comet 跑 e-commerce / banking | — | ⚠ 2026-03 federal injunction（見 §10）|
+
+### 跨 app workflow 範例
+
+「**幫我把 Q3 csv 變成圖、存到 Slack #finance**」：
+1. Claude Code（接 Computer-use MCP）打開 Excel
+2. 載入 csv、用 chart wizard 生成圖表
+3. 截圖
+4. 切到 Slack、貼到 `#finance` channel
+5. agent 回報完成
+
+**為什麼這個範例值得做**：跨 3 個 app（Excel / 截圖工具 / Slack）、沒有 API 解法（Slack 有 API 但 Excel chart 沒有可程式化路徑）。
+
+## 🧭 Track B 怎麼 build（Agent Builder 視角）
+
+**Reader pain**：Track B 想看具體 build code、不是「怎麼用」。
+
+### 1. 用 browser-use 寫 web agent
+
+**Why browser-use**：86k stars、5 行起步、LLM-vendor agnostic、production-ready。
+
+```python
+from browser_use import Agent
+from langchain_openai import ChatOpenAI
+
+agent = Agent(
+    task="Search Hacker News for top AI agent posts this week and summarize",
+    llm=ChatOpenAI(model="gpt-4o"),  # 也可換 Claude / Gemini
+)
+result = await agent.run()
+```
+
+→ 內部：browser-use 開 Playwright browser、agent DOM-first navigation、有 fallback vision。
+
+### 2. 用 E2B 跑 agent-generated code
+
+**Why E2B**：[Firecracker microVM](#-隔離技術術語小辭典) isolation + Python REPL iterative + 最多 template。
+
+```python
+from e2b_code_interpreter import Sandbox
+
+with Sandbox() as sandbox:
+    # agent 寫的 code 在這跑、出事 sandbox 丟掉即可
+    execution = sandbox.run_code(agent_generated_python)
+    print(execution.text)
+```
+
+### 3. 用 OpenAI Agents SDK 內建 sandbox（2026-04 新）
+
+**Why 這 SDK**：之前是 prototype-only、April 2026 update 後 production architecturally sound（見 §7 末）。
+
+```python
+from openai.agents import Agent, Sandbox
+
+agent = Agent(
+    model="gpt-5.5",
+    sandbox=Sandbox(provider="e2b"),  # 或 daytona / modal / vercel / ...
+    tools=[...]
+)
+```
+
+→ 7 個內建 provider 可選、bring your own sandbox 也行。
+
+### 4. GUI agent 訓練資料
+
+如果你想**訓自己的 Computer Use model**（少數人會做）：
+- [**OSWorld dataset**](https://github.com/xlang-ai/OSWorld) — 369 個跨 OS 任務、screenshot + ground truth action
+- [**WebArena**](https://github.com/web-arena-x/webarena) — web navigation benchmark
+- [**Mind2Web**](https://github.com/OSU-NLP-Group/Mind2Web) — real-world web tasks
+
+→ 多數人用 frontier model（Claude / GPT）就好、不必訓。**這條線是 research**。
+
+## ⚠ 2026 Safety / Security 重點
+
+**Reader pain**：2026 已出真實事故、curriculum 沒警告 = 學完去 build 出事。
+
+### 案例 1 — Comet 被 Brave 發現可被網頁注入
+
+**攻擊原理**（[Brave Research 2026](https://brave.com/blog/comet-prompt-injection)）：
+- Comet agent 看網頁 → 網頁裡藏惡意 prompt（如 HTML 註解內）
+- LLM 解析網頁時把惡意 prompt 當指令執行
+- 結果：agent 被 hijack 操作 user Gmail / 銀行 / 帳號
+
+**Why 這是新攻擊面**：
+- 傳統 SQL injection 攻擊路徑：**user input → server**（在 server-side 過濾就擋）
+- Prompt injection through web content：**web content → LLM context**（在 LLM context 內難分指令 vs 內容）
+- **Defense 完全不同**——無法套 SQL injection 那套
+
+### 案例 2 — Federal injunction（2026-03 Comet 禁存取 Amazon）
+
+2026-03 美國聯邦法官對 Comet 下 preliminary injunction、**禁止 agent 存取 Amazon 帳號**——理由是 Comet 在 Amazon 帳號操作不穩、且涉及未授權商業活動。
+
+**Why 這是 legal risk signal**：
+- Agent 操作他人帳號可能違反該平台 ToS
+- 大型 e-commerce / banking 平台可能用 legal action 擋 agent
+- production agent 部署前**必查目標平台 ToS**
+
+### 4 個防護 pattern（必加）
+
+```
+                    ┌──── User Request ────┐
+                    ▼                      │
+              ┌──── Agent ────┐            │
+              │               │            │
+   ┌─① approval gate          │            │
+   │  (高風險前 user 確認)     │            │
+   │                          │            │
+   │  ┌─② sandbox ──┐          │            │
+   │  │ agent 跑 code │         │            │
+   │  └──────────────┘          │            │
+   │                          │            │
+   │  ┌─③ human-in-loop ─┐     │            │
+   │  │ long task 中段確認  │     │            │
+   │  └──────────────────┘     │            │
+   │                          │            │
+   │  ┌─④ output filter ──┐    │            │
+   │  │ destination 白名單  │   │            │
+   │  └────────────────────┘   ▼            │
+   └─────────────────► Execution ───────────┘
+```
+
+| Pattern | 怎麼做 | 何時必加 |
+|---|---|---|
+| **① Approval gate** | 高風險操作（刪檔 / 付錢 / 發 email / DB delete）前彈窗 user 確認 | **所有 production agent** |
+| **② Sandbox** | agent 跑 code 必裝（見 §7 七選一）| 任何會跑 code 的 agent |
+| **③ Human-in-loop** | long-horizon task 中段 checkpoint | task > 10 steps 或 > 5 分鐘 |
+| **④ Output filter** | destination 限定白名單（only post to internal Slack、only write to /tmp）| 跨 system 操作的 agent |
+
+→ **呼應 [Stage 7 §reward-hacking 警告](07-multi-agent-production.md#-agent-benchmark-landscape2026-05-最新--reward-hacking-警告)**：curriculum 一致教「**別 blindly 信 agent**」紀律——Stage 7 講 eval 紀律、Stage 8 講 runtime 紀律。
+
+## 🛠 動手練習（兩 track 各有）
+
+### 練習 1（Track A）：跨 app workflow 用 Computer Use
+用 Claude Computer Use 完成：「打開 Excel 載入 `data.csv`、生成 bar chart、截圖、貼到 Slack `#test` channel」。**目標**：體會 agent **沒有 API 也能做事**。
+
+### 練習 2（Track B）：browser-use 寫 web agent
+用 browser-use（10 行內 Python）寫一個 agent、自動到 Hacker News 抓本週 top 5 AI 文章 + 摘要。**目標**：體會 DOM-first paradigm。
+
+### 練習 3（兩 track）：E2B 跑 agent code
+用 E2B sandbox、讓 agent 生成 Python 算數據圖、在 sandbox 內跑、回傳結果。**目標**：體會 microVM isolation 跟直接在 host 跑的差別。
+
+### 練習 4（進階）：OpenAI Agents SDK + sandbox + Computer Use
+用 OpenAI Agents SDK（2026-04 版）整合：sandbox 跑 code + Computer Use 操作 GUI、做一個小型 RPA-replacement workflow。**目標**：體會 production-grade harness + sandbox 整合。
+
+## 🎯 常用工具推薦（按用途分類）
+
+| 場景 | 推薦工具 | 為什麼 |
+|---|---|---|
+| **第一次接觸 Computer Use** | Anthropic [Claude Computer Use Docker quickstart](https://github.com/anthropics/anthropic-quickstarts) | 官方 Docker、5 分鐘起步 |
+| **桌面 background workflow** | [OpenAI Codex desktop](https://openai.com/index/codex-for-almost-everything/)（April 2026）| 不搶 cursor、可平行 |
+| **第一個 web agent**（OSS） | [browser-use](https://github.com/browser-use/browser-use) ⭐ | 86k stars、5 行 Python、LLM-vendor agnostic |
+| **GUI parsing 研究**（OSS）| [Microsoft OmniParser v2](https://github.com/microsoft/OmniParser) | vision-based、60% latency 改善 |
+| **AI Browser 主力**（消費 / research）| [Comet](https://comet.perplexity.ai/)（research）/ [Atlas](https://openai.com/index/introducing-chatgpt-atlas/)（ChatGPT user）| 各家 agent mode 強項不同 |
+| **企業 / Chrome ecosystem** | [Gemini in Chrome](https://gemini.google/overview/gemini-in-chrome/) | Auto Browse + Skills + DLP |
+| **第一個 sandbox**（agent Python）| [E2B](https://github.com/e2b-dev/E2B) | Firecracker microVM、Python REPL 友善 |
+| **Latency-critical sandbox** | [Daytona](https://www.daytona.io/) | < 90ms cold start |
+| **Sandbox + GPU**（inference / fine-tune）| [Modal](https://modal.com/) | 唯一 GPU sandbox |
+| **Production agent SDK 起點**（2026-04 後）| [OpenAI Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) | 內建 harness + 7 個 sandbox provider |
+| **Claude agent 原生路線** | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | Stage 7 已介紹、Anthropic 早於 OpenAI 抽象出 harness |
+
+**建議入手順序**：
+1. **Track A 入門**：用 Claude Computer Use Docker quickstart 跑通第一個跨 app 任務（30 分鐘）
+2. **Track B 入門**：用 browser-use 寫 web agent（10 分鐘）
+3. 加 sandbox 隔離：接 E2B 或 Daytona
+4. Production：用 OpenAI Agents SDK 或 Claude Agent SDK 整合 sandbox + Computer Use
+5. 進階 / research：訓 GUI agent → OSWorld / WebArena dataset
+
+## 🎯 精選 Projects（範本 / SDK / 工具 collection）
+
+按用途分類、15 個項目一張表搞定。
+
+| 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
+|---|---|---|---|---|
+| **Computer Use SDK** | [anthropics/anthropic-quickstarts](https://github.com/anthropics/anthropic-quickstarts) | ⭐⭐⭐⭐⭐ | 第一次接觸 Computer Use | 含 Docker quickstart、5 分鐘起步 |
+| | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | 用 OpenAI 寫 production agent | 2026-04 內建 harness + 7 sandbox provider |
+| | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | 用 Claude 寫 production agent | Anthropic 早於 OpenAI 的 agent SDK、跟 Claude Code 同 runtime |
+| **Browser Use OSS** | [browser-use/browser-use](https://github.com/browser-use/browser-use) ⭐ | ⭐⭐⭐⭐⭐ | OSS web agent 第一名 | 86k+ stars、MIT、LLM-vendor agnostic |
+| | [microsoft/OmniParser](https://github.com/microsoft/OmniParser) | ⭐⭐⭐⭐ | vision-based GUI parsing | v2 60% latency 改善、Apache 2.0、含 OmniTool（Windows VM control）|
+| **AI Browser**（閉源 / 消費）| [Atlas](https://openai.com/index/introducing-chatgpt-atlas/) | ⭐⭐⭐⭐ | ChatGPT user + Agent Mode | OpenAI 出品、macOS GA |
+| | [Comet](https://comet.perplexity.ai/) | ⭐⭐⭐⭐ | research 用 agent browser | Perplexity 出品、全平台、citation-backed。⚠ Brave 注入 + Amazon injunction |
+| | [Dia](https://www.diabrowser.com/) | ⭐⭐⭐ | 想要 AI browser 但**不要** agent mode | Browser Company 出品（被 Atlassian $610M 收購）、聚焦效能 |
+| **Sandbox**（microVM）| [e2b-dev/E2B](https://github.com/e2b-dev/E2B) | ⭐⭐⭐⭐⭐ | agent 跑 Python loop | Firecracker microVM、最多 template、Apache 2.0 |
+| **Sandbox**（container 快）| [Daytona](https://www.daytona.io/) | ⭐⭐⭐⭐ | latency-critical | < 90ms cold start、Docker 生態 |
+| **Sandbox**（GPU）| [Modal](https://modal.com/) | ⭐⭐⭐⭐ | sandbox 內跑 inference / fine-tune | 唯一 GPU sandbox、serverless |
+| **Benchmark dataset** | [xlang-ai/OSWorld](https://github.com/xlang-ai/OSWorld) | ⭐⭐⭐⭐⭐ | 想訓 / 評估 Computer Use agent | NeurIPS 2024、369 個跨 OS 任務、SOTA 76.26% |
+| | [web-arena-x/webarena](https://github.com/web-arena-x/webarena) | ⭐⭐⭐⭐ | 評估 web agent | self-hosted 真實網站、OpenAI CUA 58.1% |
+| | [OSU-NLP-Group/Mind2Web](https://github.com/OSU-NLP-Group/Mind2Web) | ⭐⭐⭐⭐ | real-world web tasks dataset | 137 個網站 / 2350 個任務 |
+| **Visual web agent** | [illuin-tech/colpali](https://github.com/illuin-tech/colpali) | ⭐⭐⭐⭐ | vision RAG for PDF / 文件 | 直接 embed page image、繞 OCR、2024 NeurIPS |
+
+> 💡 **建議入手路徑**：Track A → Anthropic quickstart + Comet；Track B → browser-use + E2B → OpenAI Agents SDK / Claude Agent SDK 整合。
+
+## ✅ Stage 8 之後的自我檢查
+
+你能不能：
+
+- [ ] 解釋 Computer Use / Browser Use / Sandbox 三層 interface 各解決什麼問題
+- [ ] 解釋 microVM / Container / Firecracker / gVisor 4 個術語、知道為什麼 agent sandbox 多半選 microVM
+- [ ] 用 Claude Computer Use 或 OpenAI Codex desktop 跑完一個跨 app 任務（練習 1）
+- [ ] 用 browser-use 5 行 Python 寫個 web agent（練習 2）
+- [ ] 用 E2B 跑 agent-generated code、體會跟 host 直接跑的差別（練習 3）
+- [ ] 講出 prompt injection through web content 為什麼是新攻擊面、4 個防護 pattern 各擋什麼
+- [ ] 講出 OSWorld 76.26% SOTA 數字背後的 reward-hacking 紀律（為什麼不能 blindly 信）
+
+如果都可以 → 你已經跑完 curriculum 主幹。挑一個[特化分支](../README.md#7-階段學習地圖)、或往下看 §下一個 frontier。
+
+## 💡 下一個 frontier — Voice agents · VLA 機器人
+
+本 stage 涵蓋 **desktop / browser / sandbox** 三層 interface——這是 2024-2026 主場。但 agent 跟世界互動還有兩條軸線、curriculum 之後會處理：
+
+### Voice agents（語音介面）
+
+- [**Vapi**](https://vapi.ai/) / [**Retell**](https://www.retellai.com/) — 商業 voice agent platform
+- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS、★ 9k+
+- [**OpenAI Realtime API**](https://platform.openai.com/docs/guides/realtime) — speech-to-speech 直接做 agent
+
+### VLA（Vision-Language-Action）機器人
+
+- [**RT-2**](https://robotics-transformer2.github.io/)（Google DeepMind）— 大型 robotic transformer
+- [**OpenVLA**](https://openvla.github.io/) — OSS、Stanford
+- [**π0**](https://www.physicalintelligence.company/blog/pi0)（Physical Intelligence）— foundation model for robotics
+- **Helix**（Figure AI 2025）— humanoid VLA
+
+**Why 不在本 stage 展開**：voice / VLA 是**另一條 modality 軸線**（聽 / 物理動作）、跟 desktop / browser / sandbox 屬性不同；展開會稀釋本 stage 主軸、放 Stage 9 處理。
+
 ---
 
-<!-- 以下 §8-15 將在 Commit C 加入 -->
+## 接下來
+
+你已經跑完主幹。下一步：
+
+1. **挑一個 specialist branch**（[for-researcher](../branches/for-researcher.md) / [for-developer](../branches/for-developer.md) / [for-teacher](../branches/for-teacher.md) / [for-knowledge-workers](../branches/for-knowledge-worker.md) / [for-everyday-users](../branches/for-everyday-users.md)）
+2. **回饋上游**——browser-use / OmniParser / OSWorld 都歡迎 PR
+3. **追 2026 後續發展**——Voice / VLA 是下一波、follow Stage 9（待規劃）
+
