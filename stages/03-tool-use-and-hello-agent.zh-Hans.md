@@ -39,22 +39,85 @@
 > 完整 3 路 trade-off 见 [`examples/README.zh-Hans.md`](../examples/README.zh-Hans.md#三条路径--默认用-ollama成本考量)。
 
 ### 练习 1：Function Calling（一个工具、一次调用）
-给 Claude 一个工具（假的天气 API）跟一个问题（「台北现在有下雨吗？」）。看 Claude 怎么调用工具、拿到结果、再回答你。
+給 Claude 一个工具（假的天氣 API）跟一个問題（「台北現在有下雨吗？」）。看 Claude 怎么调用工具、拿到结果、再回答你。
+
+<details open>
+<summary>📋 <b>起手码 — Path A（本机 Ollama qwen2.5:3b、默认）</b>（複製到 <code>practice_1.py</code>）</summary>
+
+```python
+# 需要：pip install openai
+# 前置：ollama pull qwen2.5:3b && ollama serve
+# Note: Stage 3+ 用 qwen2.5:3b（tool-use 稳定）、不是 gemma3n:e4b
+import sys, json
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from openai import OpenAI
+
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+# Step 1: 定義 tool schema — OpenAI-compatible 格式包一层 {"type":"function", "function":{...}}
+weather_tool = {
+    "type": "function",
+    "function": {
+        "name": "get_weather",
+        "description": "查詢城市目前天氣（晴/雨/阴），回传一个短字串。",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "city": {"type": "string", "description": "城市名称（如「台北」）"},
+            },
+            "required": ["city"],
+        },
+    },
+}
+
+# Step 2: 問問題、讓 LLM 自己決定要不要调用 tool
+resp = client.chat.completions.create(
+    model="qwen2.5:3b",
+    max_tokens=512,
+    tools=[weather_tool],
+    messages=[{"role": "user", "content": "台北現在有下雨吗？"}],
+)
+
+# === 自我验证 ===
+msg = resp.choices[0].message
+print("finish_reason:", resp.choices[0].finish_reason)
+print("tool_calls:", msg.tool_calls)
+
+assert msg.tool_calls, "预期 LLM 会选择调用 tool（而非直接回答）"
+tc = msg.tool_calls[0]
+assert tc.function.name == "get_weather", f"预期调用 get_weather、实际 {tc.function.name}"
+args = json.loads(tc.function.arguments)
+assert args.get("city"), "预期 city 参数有值"
+print(f"✅ 练习 1 通過 — qwen2.5:3b 正确选了 get_weather、帶 city='{args['city']}' 参数")
+```
+
+**预期输出**（樣本）：
+```
+finish_reason: tool_calls
+tool_calls: [ChatCompletionMessageToolCall(id='call_xxx', function=Function(name='get_weather', arguments='{"city": "台北"}'), type='function')]
+✅ 练习 1 通過 — qwen2.5:3b 正确选了 get_weather、帶 city='台北' 参数
+```
+
+**沒裝 Ollama 也能验邏輯**：用 `unittest.mock.MagicMock` 取代 client、塞固定 response、assert 一樣 work。完整 mock 范例见 [`examples/stage-3/03-react-from-scratch/test.py`](../examples/stage-3/03-react-from-scratch/test.py)（pattern 跨 backend 通用）。
+
+</details>
 
 <details>
-<summary>📋 <b>起手码</b>（复制到 <code>practice_1.py</code>、<code>python practice_1.py</code> 就跑）</summary>
+<summary>📋 <b>起手码 — Path B（Anthropic API、选择性）</b>（複製到 <code>practice_1_anthropic.py</code>）</summary>
 
 ```python
 # 需要：pip install anthropic
-# 环境变量：export ANTHROPIC_API_KEY=sk-ant-...
+# 環境變数：export ANTHROPIC_API_KEY=sk-ant-...
 import anthropic
 
 client = anthropic.Anthropic()
 
-# Step 1: 定义 tool schema（描述要清楚、让 LLM 一眼看懂用途）
+# Anthropic native tool schema — 不用包 wrapper
 weather_tool = {
     "name": "get_weather",
-    "description": "查询城市目前天气（晴/雨/阴），回传一个短字串。",
+    "description": "查詢城市目前天氣（晴/雨/阴），回传一个短字串。",
     "input_schema": {
         "type": "object",
         "properties": {
@@ -64,38 +127,27 @@ weather_tool = {
     },
 }
 
-# Step 2: 问问题、让 Claude 自己决定要不要调用 tool
 resp = client.messages.create(
-    model="claude-haiku-4-5",  # 用 haiku 省钱；想看更聪明的答案改 claude-sonnet-4-5
+    model="claude-haiku-4-5",
     max_tokens=512,
     tools=[weather_tool],
-    messages=[{"role": "user", "content": "台北现在有下雨吗？"}],
+    messages=[{"role": "user", "content": "台北現在有下雨吗？"}],
 )
 
 # === 自我验证 ===
-print("stop_reason:", resp.stop_reason)
-for block in resp.content:
-    print(block)
-
-assert resp.stop_reason == "tool_use", "预期 LLM 会选择调用 tool（而非直接回答）"
+assert resp.stop_reason == "tool_use", f"非预期 stop_reason: {resp.stop_reason}"
 tool_calls = [b for b in resp.content if b.type == "tool_use"]
-assert len(tool_calls) >= 1, "预期至少 1 次 tool_use"
-assert tool_calls[0].name == "get_weather", f"预期调用 get_weather、实际 {tool_calls[0].name}"
-assert tool_calls[0].input.get("city"), "预期 city 参数有值"
-print("✅ 练习 1 通过 — Claude 正确选了 get_weather、带 city 参数")
+assert tool_calls[0].name == "get_weather"
+assert tool_calls[0].input.get("city")
+print(f"✅ 练习 1 通過（Anthropic）— Claude 选了 get_weather、city='{tool_calls[0].input['city']}'")
 ```
 
-**预期输出**（前 3 行）：
-```
-stop_reason: tool_use
-TextBlock(text='我来帮你查...', type='text')
-ToolUseBlock(id='toolu_...', input={'city': '台北'}, name='get_weather', type='tool_use')
-✅ 练习 1 通过 — Claude 正确选了 get_weather、带 city 参数
-```
+**3 个關鍵 SDK 差異**：
+- **Schema wrap**：Anthropic 直接 `tools=[{name, description, input_schema}]`；OpenAI/Ollama 要包 `[{"type":"function", "function":{...}}]`
+- **Response 路徑**：Anthropic 从 `resp.content[i].type=="tool_use"` 抓；OpenAI/Ollama 从 `resp.choices[0].message.tool_calls[i]`
+- **Args 格式**：Anthropic `.input` 是 dict（自動 parse）；OpenAI/Ollama `.function.arguments` 是 JSON string，要 `json.loads(...)`
 
-**没 API key 也能练习**：把 `client.messages.create(...)` 改包一个 `unittest.mock.MagicMock`、回传固定 `tool_use` block；assert 逻辑一样 work。完整 mock 范例见 [`examples/stage-3/03-react-from-scratch/test.py`](../examples/stage-3/03-react-from-scratch/test.py)。
-
-> 🦙 **想用本机 Ollama 跑 tool use**：模型选 `qwen2.5:3b`（支援 OpenAI function-calling 格式）；SDK 用 `openai`、`base_url="http://localhost:11434/v1"`；tools schema 包一层 `{"type": "function", "function": {...}}`；response 从 `r.choices[0].message.tool_calls[0].function.name` 拿。完整 Ollama 对照 starter 见 [`examples/stage-3/03-react-from-scratch/starter_ollama.py`](../examples/stage-3/03-react-from-scratch/starter_ollama.py)（pilot、其他练习可套用同 pattern）。
+**成本**：1 次 ≈ $0.001。**Claude 的 tool-use 比 qwen2.5:3b 更稳**——複杂場景（5+ tools、模糊問題）gap 会明显。
 
 </details>
 

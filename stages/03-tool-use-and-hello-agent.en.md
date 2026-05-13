@@ -42,8 +42,71 @@ You should already:
 ### Exercise 1: Function Calling (single tool, single call)
 Give Claude one tool (a fake weather API) and one question ("Is it raining in Taipei?"). Watch Claude call the tool, get the result, and answer.
 
+<details open>
+<summary>📋 <b>Starter code — Path A (local Ollama qwen2.5:3b, default)</b> (copy to <code>practice_1.py</code>)</summary>
+
+```python
+# Requires: pip install openai
+# Pre-req: ollama pull qwen2.5:3b && ollama serve
+# Note: Stage 3+ uses qwen2.5:3b (stable tool-use support), not gemma3n:e4b
+import sys, json
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from openai import OpenAI
+
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+# Step 1: Define tool schema — OpenAI-compatible wraps it in {"type": "function", "function": {...}}
+weather_tool = {
+    "type": "function",
+    "function": {
+        "name": "get_weather",
+        "description": "Look up the current weather (sunny/rainy/cloudy) for a city. Returns a short string.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "city": {"type": "string", "description": "City name (e.g. 'Taipei')"},
+            },
+            "required": ["city"],
+        },
+    },
+}
+
+# Step 2: Ask the question; let the LLM decide whether to call the tool
+resp = client.chat.completions.create(
+    model="qwen2.5:3b",
+    max_tokens=512,
+    tools=[weather_tool],
+    messages=[{"role": "user", "content": "Is it raining in Taipei right now?"}],
+)
+
+# === Self-check ===
+msg = resp.choices[0].message
+print("finish_reason:", resp.choices[0].finish_reason)
+print("tool_calls:", msg.tool_calls)
+
+assert msg.tool_calls, "Expected the LLM to call a tool (not answer directly)."
+tc = msg.tool_calls[0]
+assert tc.function.name == "get_weather", f"Expected get_weather, got {tc.function.name}."
+args = json.loads(tc.function.arguments)
+assert args.get("city"), "Expected the city argument to be filled in."
+print(f"✅ Exercise 1 passed — qwen2.5:3b picked get_weather with city='{args['city']}'.")
+```
+
+**Expected output** (sample):
+```
+finish_reason: tool_calls
+tool_calls: [ChatCompletionMessageToolCall(id='call_xxx', function=Function(name='get_weather', arguments='{"city": "Taipei"}'), type='function')]
+✅ Exercise 1 passed — qwen2.5:3b picked get_weather with city='Taipei'.
+```
+
+**No Ollama installed?** Replace the client with a `unittest.mock.MagicMock` that returns a canned tool-call response; the asserts still work. Full mock pattern: [`examples/stage-3/03-react-from-scratch/test.py`](../examples/stage-3/03-react-from-scratch/test.py) (cross-backend pattern).
+
+</details>
+
 <details>
-<summary>📋 <b>Starter code</b> (copy to <code>practice_1.py</code> and run <code>python practice_1.py</code>)</summary>
+<summary>📋 <b>Starter code — Path B (Anthropic API, optional)</b> (copy to <code>practice_1_anthropic.py</code>)</summary>
 
 ```python
 # Requires: pip install anthropic
@@ -52,7 +115,7 @@ import anthropic
 
 client = anthropic.Anthropic()
 
-# Step 1: Define tool schema — write descriptions the LLM can read at a glance.
+# Anthropic native tool schema — no wrapper needed
 weather_tool = {
     "name": "get_weather",
     "description": "Look up the current weather (sunny/rainy/cloudy) for a city. Returns a short string.",
@@ -65,38 +128,27 @@ weather_tool = {
     },
 }
 
-# Step 2: Ask the question; let Claude decide whether to call the tool.
 resp = client.messages.create(
-    model="claude-haiku-4-5",  # Use haiku to save money; switch to claude-sonnet-4-5 for smarter answers.
+    model="claude-haiku-4-5",
     max_tokens=512,
     tools=[weather_tool],
     messages=[{"role": "user", "content": "Is it raining in Taipei right now?"}],
 )
 
 # === Self-check ===
-print("stop_reason:", resp.stop_reason)
-for block in resp.content:
-    print(block)
-
-assert resp.stop_reason == "tool_use", "Expected the LLM to call a tool (not answer directly)."
+assert resp.stop_reason == "tool_use", f"unexpected stop_reason: {resp.stop_reason}"
 tool_calls = [b for b in resp.content if b.type == "tool_use"]
-assert len(tool_calls) >= 1, "Expected at least one tool_use block."
-assert tool_calls[0].name == "get_weather", f"Expected get_weather, got {tool_calls[0].name}."
-assert tool_calls[0].input.get("city"), "Expected the city argument to be filled in."
-print("✅ Exercise 1 passed — Claude picked get_weather with a city argument.")
+assert tool_calls[0].name == "get_weather"
+assert tool_calls[0].input.get("city")
+print(f"✅ Exercise 1 passed (Anthropic) — Claude picked get_weather with city='{tool_calls[0].input['city']}'.")
 ```
 
-**Expected output** (first 3 lines):
-```
-stop_reason: tool_use
-TextBlock(text='Let me check...', type='text')
-ToolUseBlock(id='toolu_...', input={'city': 'Taipei'}, name='get_weather', type='tool_use')
-✅ Exercise 1 passed — Claude picked get_weather with a city argument.
-```
+**3 key SDK differences**:
+- **Schema wrapping**: Anthropic uses `tools=[{name, description, input_schema}]` directly; OpenAI/Ollama needs `[{"type":"function", "function":{...}}]`
+- **Response path**: Anthropic reads from `resp.content[i].type=="tool_use"`; OpenAI/Ollama reads from `resp.choices[0].message.tool_calls[i]`
+- **Args format**: Anthropic `.input` is already a dict; OpenAI/Ollama `.function.arguments` is a JSON string — `json.loads(...)` it
 
-**No API key handy?** Wrap `client.messages.create(...)` in a `unittest.mock.MagicMock` that returns a canned `tool_use` block; the asserts still work. Full mock pattern: [`examples/stage-3/03-react-from-scratch/test.py`](../examples/stage-3/03-react-from-scratch/test.py).
-
-> 🦙 **Local Ollama for tool use**: pick the `qwen2.5:3b` model (supports OpenAI function-calling format); use the `openai` SDK with `base_url="http://localhost:11434/v1"`; wrap each tool schema in `{"type": "function", "function": {...}}`; read the call back from `r.choices[0].message.tool_calls[0].function.name`. Full Ollama starter: [`examples/stage-3/03-react-from-scratch/starter_ollama.py`](../examples/stage-3/03-react-from-scratch/starter_ollama.py) (pilot — other exercises follow the same pattern).
+**Cost**: ~$0.001/call. **Claude's tool use is more reliable than qwen2.5:3b** — the gap widens with complex scenarios (5+ tools, ambiguous questions).
 
 </details>
 
