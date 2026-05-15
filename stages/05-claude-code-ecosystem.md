@@ -78,7 +78,7 @@
 4. [**Anthropic — Settings**](https://docs.claude.com/en/docs/claude-code/settings) — `settings.json` 完整 schema + env var
 5. [**KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh**](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) — 簡中入門指南
 
-> 🛠️ **要寫好 CLAUDE.md？** 先看 [Stage 7.5 核心 Harness Engineering 原則（多 source）](07.5-advanced-agentic-concepts.md#-核心-harness-engineering-原則多-source-整理) 建概念、再用下面 2 個 prompt 動手。
+> 🛠️ **要寫好 CLAUDE.md？** 先看 [Stage 7.5 核心 Harness Engineering 原則（多 source）](07.5-advanced-agentic-concepts.md#-跨概念-harness-engineering-原則多-source-整理) 建概念、再用下面 2 個 prompt 動手。
 
 ### 📋 CLAUDE.md 設計 prompts（依 5 原則）
 
@@ -243,7 +243,7 @@ Skill = **一個 markdown 檔**（`.claude/skills/<name>/SKILL.md`），告訴 C
 
 > 🛠️ **要寫好 SKILL.md？** 兩條路：
 > - **路 A：用 Anthropic 官方 `skill-creator` skill 自動產生**（5.3.x 之後安裝段落會教），它會自動產 frontmatter + 子目錄結構、是 Anthropic 維護的 canonical 工具。
-> - **路 B：用下面 SKILL.md 設計 prompts 自己寫**——先看 [Stage 7.5 核心 Harness Engineering 原則](07.5-advanced-agentic-concepts.md#-核心-harness-engineering-原則多-source-整理) 建概念、再用 prompt 動手。
+> - **路 B：用下面 SKILL.md 設計 prompts 自己寫**——先看 [Stage 7.5 核心 Harness Engineering 原則](07.5-advanced-agentic-concepts.md#-跨概念-harness-engineering-原則多-source-整理) 建概念、再用 prompt 動手。
 >
 > 兩條不衝突：`skill-creator` 給結構、5 原則 prompt 給內容品質檢查。
 
