@@ -458,6 +458,10 @@ Plugin
 
 Up to this point, you've learned about MCP (the tool layer), Skills (the behavior layer), and Plugins (the distribution layer). **Subagents are the orchestration layer**—they allow the main Claude session to spawn child agents with independent contexts to run specific tasks and report back the results.
 
+![Subagent 4-Stage Lifecycle: from .md file to returned summary](../resources/diagrams/subagent-4-stage-flow.en.png)
+
+> 📊 **The diagram above** shows the 4 stages — **Definition → Discovery → Dispatch → Execution**. Read this first, then dive into the details below.
+
 A comparison with framework-based multi-agent systems from Stage 4 (LangGraph / CrewAI / AutoGen):
 
 | Dimension | Framework path (Stage 4) | Claude Subagent path (This Section) |
@@ -554,6 +558,8 @@ The **3 concept pairs** students confuse most often, plus **5 gotchas veterans l
 #### Subagent vs Skill — 5 Key Differences
 
 Many people treat Subagents and Skills as the same thing. They are actually **completely different layers**:
+
+![Subagent vs Skill — 5 Key Differences](../resources/diagrams/subagent-vs-skill.en.png)
 
 | Dimension | Subagent | Skill |
 |---|---|---|

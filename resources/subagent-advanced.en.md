@@ -105,6 +105,10 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 
 When you want to run 2+ subagents together, how should you compose them? The 3 patterns below are common community patterns:
 
+![Subagent Composition — 3 Patterns](../resources/diagrams/subagent-composition-patterns.en.png)
+
+> 📊 **The diagram above**: A — Parallel (most common) / B — Pipeline (multi-LLM orchestration) / C — Meta-Agent (NOT recommended, listed to avoid). See the full picture first, then read the details.
+
 ### Pattern A — Parallel Isolation (most common and simplest)
 
 **Architecture**:

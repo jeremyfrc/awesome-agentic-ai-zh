@@ -105,6 +105,10 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 
 要跑 2+ subagent 一起時、怎麼組合？下面 3 種 pattern 是社群歸納的常見組合：
 
+![Subagent Composition — 3 種組合 Pattern](../resources/diagrams/subagent-composition-patterns.png)
+
+> 📊 **上圖**：A 平行（最常用）/ B Pipeline（多 LLM 編排）/ C Meta-Agent（不推薦避坑）—— 先看全貌再讀細節。
+
 ### Pattern A — 平行隔離（最常用、最簡單）
 
 **架構**：

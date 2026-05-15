@@ -458,6 +458,10 @@ Plugin
 
 到这里为止你学了 MCP（工具层）/ Skills（行为层）/ Plugins（散布层）。**Subagents 是 orchestration 层**——让主 Claude session spawn 出有独立 context 的子 agent、跑特定任务、回报结果。
 
+![Subagent 的 4 个生命周期：从 .md 文件到执行结果](../resources/diagrams/subagent-4-stage-flow.zh-Hans.png)
+
+> 📊 **上图**：subagent 从**定义 → 发现 → 派遣 → 执行** 4 个阶段、看完这张再读下面细节最快。
+
 跟 Stage 4 的 framework-based multi-agent（LangGraph / CrewAI / AutoGen）对照：
 
 | 维度 | Framework path (Stage 4) | Claude Subagent path（本节） |
@@ -554,6 +558,8 @@ Plugin
 #### Subagent vs Skill — 5 个关键差别
 
 很多人把 Subagent 跟 Skill 当同一件事——其实是**完全不同层的东西**：
+
+![Subagent vs Skill — 5 个关键差别](../resources/diagrams/subagent-vs-skill.zh-Hans.png)
 
 | 维度 | Subagent（子 agent） | Skill（技能） |
 |---|---|---|
