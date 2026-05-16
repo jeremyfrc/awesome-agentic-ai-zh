@@ -58,6 +58,8 @@
 |---|---|---|
 | [@scott0127](https://github.com/scott0127) | **Stage 6 RAG 教材** — chunking strategies guide ([#2](https://github.com/WenyuChiou/awesome-agentic-ai-zh/pull/2))、unit guide overview ([#5](https://github.com/WenyuChiou/awesome-agentic-ai-zh/pull/5)) · **for-teacher 框架** — 3-tier 教師 AI 應用情境 + 學術引用 (Chen 2020 / Mittal 2024) ([#6](https://github.com/WenyuChiou/awesome-agentic-ai-zh/pull/6)) | 2026-05-08 |
 | [@xfq](https://github.com/xfq) | **i18n correctness audit** — flagged BCP 47 / W3C compliance issue (`zh-CN` → `zh-Hans`) and provided the script subtag rationale ([#9](https://github.com/WenyuChiou/awesome-agentic-ai-zh/issues/9)). [W3C i18n lead](https://www.w3.org/International/). | 2026-05-10 |
+| [@demo112](https://github.com/demo112) | **中國生態 catalog** — 新增 whale (DeepSeek terminal assistant) + a-stock-data (A 股工具包) 到 Chinese ecosystem ([#14](https://github.com/WenyuChiou/awesome-agentic-ai-zh/pull/14)) | 2026-05-14 |
+| [@Rain120](https://github.com/Rain120) | **zh-Hans 大陸在地化** — 系統盤點 zh-Hans 鏡像的台灣用詞,促成 `scripts/zh-hans-localize.py`(curated 台→陸詞表 + 大陸引號,已套全 54 檔並進 lint CI gate;貢獻者掛 commit `7f73b8a` Co-Author)([#18](https://github.com/WenyuChiou/awesome-agentic-ai-zh/pull/18)) | 2026-05-16 |
 
 ---
 
