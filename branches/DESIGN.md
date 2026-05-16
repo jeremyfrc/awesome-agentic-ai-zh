@@ -114,22 +114,7 @@ audience 切太細會：
 
 ## 加新 branch 的決策樹
 
-```
-有人提議加新 branch
-    ↓
-1. 這個 audience 的 pain 已經被現有 5 個 branch 涵蓋了嗎？
-    ├─ 是 → 加 sub-section 到那個 branch，不開新 branch
-    └─ 否 → 繼續
-2. 這個 audience 在中文社群至少有 1 萬人嗎？（reachable scale）
-    ├─ 否 → 加 sub-section
-    └─ 是 → 繼續
-3. 至少有 1-2 個願意偶爾回來 review 的 maintainer？
-    ├─ 沒有 → 加 sub-section 比較安全（沒人維護的 branch 容易腐爛）
-    └─ 有 → 繼續
-4. 至少能找到 5 個 quality entries？
-    ├─ 否 → 加 sub-section
-    └─ 是 → 開新 branch
-```
+![加新 branch 決策樹](../resources/diagrams/add-branch-decision-flow.png)
 
 ### 範例：要不要加 `for-data-scientists`？
 - pain 已被 for-researcher 涵蓋（文獻 RAG、實驗設計）
