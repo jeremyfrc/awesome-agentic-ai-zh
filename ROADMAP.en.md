@@ -18,9 +18,6 @@ This repo is a **community-maintained learning roadmap**: no release date, no pr
 ### 🟡 Deepen the audience branch Files
 5 audience branch files by length (zh-TW canonical, 2026-05 snapshot): for-knowledge-worker (143 lines, shortest) < for-developer (166) < for-everyday-users (179) < for-researcher (208) < for-teacher (224). **The shortest files, `for-knowledge-worker.md` / `for-developer.md`, need scenario coverage the most**. `for-teacher.md` is actually the longest, but `CONTRIBUTORS.md` still marks it as “especially open to self-nominations”: what is truly thin is the **academic citation depth for teacher scenarios** (currently only Chen 2020 / Mittal 2024), and more 3-tier teacher AI application scenarios + matching citations are welcome.
 
-### 🟡 Stage 1 / Stage 2 Mirror benign drift Inventory
-The Stage 1/2 `.en.md` / `.zh-Hans.md` files have one extra section that was added earlier but does **not** exist in the zh-TW canonical (see `MIRROR-SYNC-TODO.md`). Someone needs to judge paragraph by paragraph: which extra content is valuable and should be backfilled into canonical, and which parts are outdated and should be removed. **Not urgent, but it will slowly erode trust**.
-
 ### 🟡 Stage 2 / Stage 3 2026 freshness Touch-Up
 A few small 2026 wording / model-reference updates have not been synced to mirrors yet (about 5 lines of diff × 2 locales).
 

@@ -18,9 +18,6 @@
 ### 🟡 audience branch 深化
 5 條 audience branch 篇幅(zh-TW canonical,2026-05 snapshot):for-knowledge-worker(143 行,最短)< for-developer(166)< for-everyday-users(179)< for-researcher(208)< for-teacher(224)。**篇幅最短的 `for-knowledge-worker.md` / `for-developer.md` 最需要補情境**。`for-teacher.md` 篇幅其實最長,但 `CONTRIBUTORS.md` 仍把它標「特別歡迎自薦」——它真正薄的是**教師情境的學術引用深度**(目前只有 Chen 2020 / Mittal 2024 兩筆),歡迎補更多 3-tier 教師 AI 應用情境 + 對應引用。
 
-### 🟡 Stage 1 / Stage 2 鏡像 benign drift 盤點
-Stage 1/2 的 `.en.md` / `.zh-Hans.md` 比 zh-TW canonical **多**了一段較早期加入、canonical 沒有的內容(見 `MIRROR-SYNC-TODO.md`)。需要有人逐段判斷:哪些額外內容有價值該回填 canonical、哪些是過時該修掉。**不急,但會慢慢侵蝕信任**。
-
 ### 🟡 Stage 2 / Stage 3 2026 freshness 小修
 幾處 2026 用語 / 模型引用的小幅更新還沒同步到鏡像(約 5 行 diff × 2 locale)。
 
