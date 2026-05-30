@@ -88,14 +88,14 @@ You're on the subway, you open Telegram on your phone, and you message your Herm
 2. **Multi-LLM routing (200+ model neutral)**: OpenRouter + NVIDIA NIM + Zhipu GLM + Kimi + Xiaomi MiMo + MiniMax + HF + OpenAI + Anthropic + Google. **A single conversation can span multiple LLMs**.
 3. **24/7 availability**: the agent doesn't depend on your laptop; it lives on a cloud VPS, always reachable.
 4. **Built-in cron**: routines like "every day at 9am, do X and send Y" are first-class.
-5. **Self-improving skill loop** (frontier feature): the more you interact, the more the agent generalizes into reusable skills that evolve across sessions.
+5. **Self-improving skills** (experimental, not yet independently audited): the more you interact, the more the agent generalizes into reusable skills that accumulate across sessions.
 
 **Why this type exists**: When the agent is **a personal assistant** rather than a pair programmer, it shouldn't be tied to your laptop. Type 4 turns the agent into a 24×7 service.
 
-**Distinguishing trait**: ~$5/month VPS hosting + API costs; China-region LLM support (GLM / Kimi) makes it a useful fallback gateway when US services are flaky.
+**Distinguishing trait**: ~$5/month VPS hosting + API costs; China-region LLM support (GLM / Kimi) — a useful backup to switch to when US services are flaky.
 
 **Trade-offs**:
-- ⚠️ The skill loop is a frontier feature without independent audit — be cautious about production-critical tasks
+- ⚠️ Self-improving skills are a new capability with no independent security audit yet — don't enable it for high-stakes tasks (medical / legal / payments)
 - You lose IDE/terminal-style direct filesystem manipulation; you adopt a chat-first workflow
 - You need self-host fluency (Linux / Docker / systemd basics)
 

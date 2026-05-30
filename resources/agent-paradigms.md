@@ -88,14 +88,14 @@
 2. **Multi-LLM routing（200+ model neutral）**：OpenRouter + NVIDIA NIM + 智譜 GLM + Kimi + 小米 MiMo + MiniMax + HF + OpenAI + Anthropic + Google。**同一 conversation 內可跨 LLM**。
 3. **24/7 在線**：agent 不依賴你 laptop、cloud VPS host、任何時刻可用。
 4. **Built-in cron**：「每天 9am 抓 X 給我 Y」這種 routine 直接內建。
-5. **Self-improving skill loop**（frontier feature）：agent 跟你互動久了會 generalize 出 skill、跨 session 演化。
+5. **自我學習技能**（實驗中、尚未獨立審計）：agent 跟你互動久了、會自動歸納出可重用的 skill、跨 session 累積演化。
 
 **為什麼這型存在**：當 agent 是「**個人助理**」而不是「pair programmer」時、它不該綁你 laptop。Type 4 把 agent 變成 24×7 service。
 
-**特色**：deployment cost ~$5/月 VPS + API；中國圈 LLM 支援（GLM / Kimi）—— 對外服務不穩時是 fallback gateway。
+**特色**：deployment cost ~$5/月 VPS + API；中國圈 LLM 支援（GLM / Kimi）—— 國際服務中斷時可以改用這些接力。
 
 **Trade-off**：
-- ⚠️ Skill loop 是 frontier feature、缺獨立 audit、production critical task 慎用
+- ⚠️ 自我學習技能是新功能、還沒經過獨立安全檢驗；用在會造成嚴重後果的任務（醫療 / 法律 / 金流）前先別開
 - 失去 IDE / terminal 的 file system 直接讀寫便利、變成 chat-first workflow
 - 需要會 self-host VPS（Linux / docker / systemd 基礎）
 
@@ -145,8 +145,8 @@
 | **Claude Code 原生**（Stage 5.5） | 寫 `.claude/agents/<name>.md`、主 session 用 Task tool invoke | Claude Code subagent + Claude Agent SDK |
 
 **差別在 runtime ownership**：
-- Framework path：你自己的 Python process 跑 orchestrator、各 sub-agent 是程式內的物件
-- Claude path：Claude Code 自己 spawn 新 agent instance、parent / child 共用 Claude runtime、parent 只看到 child 的最終 result（context 自動隔離）
+- Framework path：你用 Python 寫一支主程式（orchestrator）來調度、每個 sub-agent 都是這支程式裡的物件
+- Claude path：Claude Code 自動建立新的子 agent、主 agent 只拿到子 agent 的最終結果、不用管它的內部過程（context 自動隔離、互不干擾）
 
 **選哪個**：要跨 LLM provider（GPT + Claude + Gemini 混用）或要把 multi-agent 包進別的應用程式 → framework path。已 commit Claude Code、只在 Claude 生態 → subagent path（少很多 boilerplate）。
 
