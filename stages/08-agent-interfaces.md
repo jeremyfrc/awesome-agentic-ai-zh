@@ -83,7 +83,7 @@
 ## 📚 必修閱讀
 
 1. [**Anthropic — Introducing Computer Use**](https://www.anthropic.com/news/3-5-models-and-computer-use) — Computer Use 原始 launch、reading 工作原理必看
-2. [**Anthropic — Claude Opus 4.8 Release Notes**](https://docs.anthropic.com/en/release-notes/overview) — 2026-05 最新 Opus 4.8 含 Dynamic Workflows + parallel subagent harness
+2. [**Anthropic — Claude Opus 4.8 Release Notes**](https://docs.anthropic.com/en/release-notes/overview) — Opus 4.8（2026-05）含 Dynamic Workflows + parallel subagent harness、為 Opus 級旗艦。**2026-06-09 Anthropic 再推 Claude Fable 5（`claude-fable-5`，Mythos-class、定位在 Opus 級之上的最高能力且廣泛可用層）**——同步發布的 Claude Mythos 5（`claude-mythos-5`）是解除部分 safeguard 的限量版；敏感查詢（資安 / 生化 / distillation）會 fall back 回 Opus 4.8
 3. [**OpenAI — The next evolution of the Agents SDK**](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) ⭐ **2026-04** — 內建 sandbox + harness 抽象、production coding agent architecturally sound milestone
 4. [**OpenAI — Computer-Using Agent (CUA)**](https://openai.com/index/computer-using-agent/) — OpenAI 版 Computer Use + WebArena / OSWorld 數字
 5. [**browser-use docs**](https://docs.browser-use.com/) — OSS web agent 第一名（86k+ stars）、5 行 Python 起步
@@ -124,7 +124,7 @@ agent 收到任務
 
 | Vendor | 產品 | 2026 狀態 | OSWorld | 強項 |
 |---|---|---|---|---|
-| **Anthropic** | [Claude Opus 4.8 / Sonnet 4.6 Computer Use](https://www.anthropic.com/news/3-5-models-and-computer-use) | GA、跨 macOS / Linux / Windows（Docker）| **72.7%**（Opus 4.6 baseline、近 human 72.36%；Opus 4.7 / 4.8 後續 Computer Use 專項數字未公布）| reasoning + code agent、Stage 5/7 主場 |
+| **Anthropic** | [Claude Fable 5（2026-06-09、Mythos-class）/ Opus 4.8 / Sonnet 4.6 Computer Use](https://www.anthropic.com/news/3-5-models-and-computer-use) | GA、跨 macOS / Linux / Windows（Docker）| **72.7%**（Opus 4.6 baseline、近 human 72.36%；Opus 4.7 / 4.8 後續及 Fable 5 的 Computer Use 專項數字未公布）| reasoning + code agent、Stage 5/7 主場；Fable 5 為最高能力且廣泛可用層、Opus 4.8 為其 safeguard fallback |
 | **OpenAI** | [Codex desktop](https://openai.com/index/codex-for-almost-everything/)（April 2026）| GA、**background mode** 不搶 cursor、in-app browser、90+ plugins | CUA 38.1% | 跟 ChatGPT + Atlas 合併成 **Desktop Superapp** |
 | **OpenAI** | [Computer-Using Agent (CUA)](https://openai.com/index/computer-using-agent/) | API | 38.1% / WebArena 58.1% | API-first、可整合自己 stack |
 | **Google** | [Gemini in Chrome](https://gemini.google/overview/gemini-in-chrome/)（Gemini 3）| GA + Android | — | **Auto Browse** + **Chrome Skills**、Chrome Enterprise Premium $6/user/月 |
@@ -208,7 +208,7 @@ agent 收到任務
 | 框架 | 狀態 | 強項 |
 |---|---|---|
 | [**browser-use**](https://github.com/browser-use/browser-use) ⭐ | **86k+ stars、MIT** | 2026 最火 OSS、Python、5 行起步、支援 OpenAI / Claude / Gemini / Ollama |
-| [**Microsoft OmniParser v2**](https://github.com/microsoft/OmniParser) | 2026 更新、Apache 2.0 | vision-based GUI parsing、60% latency 改善、ScreenSpot Pro 39.6% accuracy。同 repo 內含 **OmniTool**（Windows 11 VM 控制、可搭 GPT-5.5 / Claude Opus 4.8 / DeepSeek-V4-Pro / Qwen 2.5VL / Claude Computer Use）|
+| [**Microsoft OmniParser v2**](https://github.com/microsoft/OmniParser) | 2026 更新、Apache 2.0 | vision-based GUI parsing、60% latency 改善、ScreenSpot Pro 39.6% accuracy。同 repo 內含 **OmniTool**（Windows 11 VM 控制、可搭 GPT-5.5 / Claude Fable 5 / Claude Opus 4.8 / DeepSeek-V4-Pro / Qwen 2.5VL / Claude Computer Use）|
 | **Playwright + LLM**（DIY）| — | 不是專門 framework、但 Playwright 是 web automation 標準、加 LLM wrapper 就能用 |
 
 **Why browser-use 86k stars 這麼火**：
@@ -337,7 +337,7 @@ from langchain_openai import ChatOpenAI
 
 agent = Agent(
     task="Search Hacker News for top AI agent posts this week and summarize",
-    llm=ChatOpenAI(model="gpt-5.5"), # 也可換 Claude Opus 4.8 / Gemini 3.1 Pro / DeepSeek-V4-Pro
+    llm=ChatOpenAI(model="gpt-5.5"), # 也可換 Claude Fable 5 / Claude Opus 4.8 / Gemini 3.1 Pro / DeepSeek-V4-Pro
 )
 result = await agent.run()
 ```

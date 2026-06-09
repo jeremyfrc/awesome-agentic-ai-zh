@@ -40,9 +40,9 @@ After this stage you will be able to:
 
 These 3 are SaaS APIs: you pay per token and cannot self-host them.
 
-| Model family | Flagship (2026-05) | Context | Strengths | Best for | Official docs |
+| Model family | Flagship (2026-06) | Context | Strengths | Best for | Official docs |
 |---|---|---|---|---|---|
-| **Claude** (Anthropic) | Opus 4.8 / Sonnet 4.6 / Haiku 4.5 | 1M (Haiku 4.5 is 200k) | long-form / coding / agent / safety alignment | writing papers / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| **Claude** (Anthropic) | Fable 5 (Mythos-class, newest top tier as of 2026-06) / Opus 4.8 (Opus-class flagship, Fable 5's safeguard fallback) / Sonnet 4.6 / Haiku 4.5 | Fable 5 not published; Opus 4.8 is 1M (Haiku 4.5 is 200k) | long-form / coding / agent / safety alignment | writing papers / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
 | **GPT** (OpenAI) | GPT-5.5 / GPT-5 / o-series | ~400k | general-purpose / function calling / broadest ecosystem | broad queries / function-call frameworks / GPTs ecosystem | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini** (Google) | 3.1 Pro / Flash | **2M** (Pro series; Flash is 1M) | long context / native multimodal / Google integration | PDF / video and audio / large document sets / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
@@ -117,7 +117,7 @@ If not — go back to Stage 0 first.
 
 ## 📚 Required Reading
 
-1. [**Anthropic — Claude Model Overview**](https://docs.claude.com/en/about-claude/models/overview) — official model family overview, including 2026's latest Opus 4.8 / Sonnet 4.6 / Haiku 4.5
+1. [**Anthropic — Claude Model Overview**](https://docs.claude.com/en/about-claude/models/overview) — official model family overview, including 2026's latest Claude Fable 5 (`claude-fable-5`, Mythos-class, GA 2026-06-09) plus Opus 4.8 / Sonnet 4.6 / Haiku 4.5. Fable 5 is the safeguarded, publicly available member; its same-model sibling with some safeguards lifted, Mythos 5 (`claude-mythos-5`), is limited-availability to approved customers via Project Glasswing
 2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic's official 5-course umbrella; **module 1 "Anthropic API Fundamentals" maps to this stage**. Jupyter notebooks, runs on Claude 3 Haiku (cheapest), hands-on walkthrough of API essentials.
 3. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) — first API call walkthrough
 4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face's intro
@@ -340,6 +340,7 @@ PRICING = {
     "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
     "claude-sonnet-4-6":  {"input": 3.00, "output": 15.00},
     "claude-opus-4-8":    {"input": 5.00, "output": 25.00},  # Opus 4.8 (May 2026, Dynamic Workflows) — same 5/25 pricing
+    "claude-fable-5":     {"input": 10.00, "output": 50.00},  # Fable 5 (Mythos-class, GA 2026-06-09) — newest top tier, ~2x Opus 4.8
 }
 
 client = anthropic.Anthropic()

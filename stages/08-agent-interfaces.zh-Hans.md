@@ -83,7 +83,7 @@
 ## 📚 必修阅读
 
 1. [**Anthropic — Introducing Computer Use**](https://www.anthropic.com/news/3-5-models-and-computer-use) — Computer Use 的原始发布，必读以了解其工作原理。
-2. [**Anthropic — Claude Opus 4.8 Release Notes**](https://docs.anthropic.com/en/release-notes/overview) — 2026 年 5 月最新的 Opus 4.8 引入 Dynamic Workflows + parallel subagent harness。
+2. [**Anthropic — Claude Opus 4.8 Release Notes**](https://docs.anthropic.com/en/release-notes/overview) — Opus 4.8（2026 年 5 月）引入 Dynamic Workflows + parallel subagent harness，为 Opus 级旗舰。**2026 年 6 月 9 日 Anthropic 再推 Claude Fable 5（`claude-fable-5`，Mythos-class、定位在 Opus 级之上的最高能力且广泛可用层）**——同步发布的 Claude Mythos 5（`claude-mythos-5`）是解除部分 safeguard 的限量版；敏感查询（网络安全 / 生化 / distillation）会回退到 Opus 4.8。
 3. [**OpenAI — The next evolution of the Agents SDK**](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) ⭐ **2026-04** — 内置沙箱和 harness 抽象，是生产级编码智能体架构的里程碑。
 4. [**OpenAI — Computer-Using Agent (CUA)**](https://openai.com/index/computer-using-agent/) — OpenAI 版本的 Computer Use，包含 WebArena / OSWorld 数据。
 5. [**browser-use docs**](https://docs.browser-use.com/) — 开源 web agent 排名第一（86k+ 星），5 行 Python 即可上手。
@@ -124,7 +124,7 @@
 
 | 厂商 | 产品 | 2026 状态 | OSWorld | 强项 |
 |---|---|---|---|---|
-| **Anthropic** | [Claude Opus 4.8 / Sonnet 4.6 Computer Use](https://www.anthropic.com/news/3-5-models-and-computer-use) | GA，跨 macOS / Linux / Windows（Docker）| **72.7%**（Opus 4.6 基线，接近人类 72%；Opus 4.7 / 4.8 后续 Computer Use 专项数据未公布）| 推理 + 代码智能体，Stage 5/7 主场 |
+| **Anthropic** | [Claude Fable 5（2026-06-09、Mythos-class）/ Opus 4.8 / Sonnet 4.6 Computer Use](https://www.anthropic.com/news/3-5-models-and-computer-use) | GA，跨 macOS / Linux / Windows（Docker）| **72.7%**（Opus 4.6 基线，接近人类 72%；Opus 4.7 / 4.8 后续及 Fable 5 的 Computer Use 专项数据未公布）| 推理 + 代码智能体，Stage 5/7 主场；Fable 5 为最高能力且广泛可用层、Opus 4.8 为其 safeguard 回退 |
 | **OpenAI** | [Codex desktop](https://openai.com/index/codex-for-almost-everything/)（2026 年 4 月）| GA，**background mode** 不抢占光标，in-app browser，90+ 插件 | CUA 38.1% | 与 ChatGPT + Atlas 合并成 **Desktop Superapp** |
 | **OpenAI** | [Computer-Using Agent (CUA)](https://openai.com/index/computer-using-agent/) | API | 38.1% / WebArena 58.1% | API-first，可整合到自己的技术栈 |
 | **Google** | [Gemini in Chrome](https://gemini.google/overview/gemini-in-chrome/)（Gemini 3）| GA + Android | — | **Auto Browse** + **Chrome Skills**，Chrome Enterprise Premium $6/用户/月 |

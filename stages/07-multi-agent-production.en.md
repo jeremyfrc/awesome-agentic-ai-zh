@@ -193,12 +193,14 @@ Before choosing a model or building an agent, you'll want to look at benchmark n
 | Benchmark | Domain | 2026-05 SOTA | Leading Model |
 |---|---|---|---|
 | [**SWE-bench Verified**](https://www.swebench.com/) | Software Engineering / code agent | **88.6%** | Claude Opus 4.8 |
-| [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal tasks | Leading | Claude Opus 4.5 / 4.7 |
+| [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal tasks | Leading | Claude Opus 4.8 |
 | **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5 (Princeton HAL) |
 | [**WebArena**](https://github.com/web-arena-x/webarena) | web navigation | **68.7%** | Claude Mythos Preview |
 | [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level desktop control | **76.26%** (SOTA, superhuman vs 72.36% human baseline) | OpenAI CUA 38%, most frontier models still under 50% |
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | multi-turn dialogue with tool use | (Harder to hack) | Anthropic / OpenAI leading |
 | **RE-bench** | research engineering | (Harder to hack, close to human baseline) | Frontier models |
+
+> **New top tier (2026-06-09)**: [**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5) (`claude-fable-5`, Mythos-class, positioned above the Opus class) is now the publicly available, highest-capability Claude tier; its sibling Claude Mythos 5 (`claude-mythos-5`, some safeguards lifted, limited to approved customers) shipped the same day. The numbers above stay attributed to their original models; Fable 5's official benchmark numbers are not yet published, so it is not listed. Opus 4.8 remains the Opus-class flagship and serves as Fable 5's safeguard fallback (sensitive queries fall back to Opus 4.8).
 
 → For detailed rankings + live updates: [Agent Benchmark Leaderboard 2026](https://benchmarkingagents.com/agent-benchmarks/), [Rapid Claw AI Agent Framework Scorecard 2026](https://rapidclaw.dev/blog/ai-agent-benchmarks-2026)
 
