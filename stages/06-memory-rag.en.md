@@ -155,6 +155,8 @@ These are the minimal structural elements. **The 3 most common pitfalls**:
 
 > 📚 **For more RAG pitfalls and solutions**: [NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques) ★ Large Production RAG Cookbook, includes 30+ techniques + Jupyter notebook examples.
 
+> 📄 **The two places RAG actually breaks (don't only tune chunking)**: (1) **parsing / ingest**: PDF → clean markdown is where garbage-in starts: [docling-project/docling](https://github.com/docling-project/docling) (★61k, MIT), [opendatalab/MinerU](https://github.com/opendatalab/MinerU) (strong on Chinese / scientific PDFs; **AGPL**, mind the license), [microsoft/markitdown](https://github.com/microsoft/markitdown) (★150k+, MIT). (2) **picking an embedding model**: your first retrieval-quality decision: check the [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard); for Chinese / multilingual, [BGE-M3](https://github.com/FlagOpen/FlagEmbedding) (★12k, MIT) is a common pick.
+
 After implementing the basic skeleton, complete Exercises 1-4 (Embeddings / Vector DB / Chunking / Full Pipeline) to gain practical experience, then move to the next section on Advanced RAG Techniques.
 
 ## 🚀 Advanced RAG Techniques (Read After Basic RAG)

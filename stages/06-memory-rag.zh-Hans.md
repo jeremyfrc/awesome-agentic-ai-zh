@@ -155,6 +155,8 @@
 
 > 📚 **想看更多 RAG 踩坑指南 + 解法**：[NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques) ★ 大型 Production RAG Cookbook，包含 30+ 技巧 + Jupyter notebook 示例。
 
+> 📄 **RAG 真正常挂的两个地方，别只顾 chunking**：(1) **解析（ingest）**——PDF→干净 markdown 是 garbage-in 的源头：[docling-project/docling](https://github.com/docling-project/docling)（★61k、MIT）、[opendatalab/MinerU](https://github.com/opendatalab/MinerU)（中文 / 科学 PDF 强，**AGPL** 注意授权）、[microsoft/markitdown](https://github.com/microsoft/markitdown)（★150k+、MIT）。(2) **选嵌入模型**——第一个检索质量决策，别瞎挑：看 [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard)，中文 / 多语常用 [BGE-M3](https://github.com/FlagOpen/FlagEmbedding)（★12k、MIT）。
+
 跑完基础骨架后，先跑 动手练习 1-4（embeddings / vector DB / chunking / 完整 pipeline）建立手感，再进入下一节 进阶 RAG 技巧。
 
 ## 🚀 进阶 RAG 技巧（跑完基础 RAG 之后再看）

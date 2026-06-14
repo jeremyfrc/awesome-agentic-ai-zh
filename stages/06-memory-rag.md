@@ -155,6 +155,8 @@ LLM 知道你的私有 / 領域資料、有 3 種主要做法。**本 stage 教 
 
 > 📚 **想看更多 RAG 踩坑指南 + 解法**：[NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques) ★ 大型 production RAG cookbook、含 30+ 技巧 + Jupyter notebook 範例。
 
+> 📄 **RAG 真正常掛的兩個地方，別只顧 chunking**：(1) **解析（ingest）**——PDF→乾淨 markdown 是 garbage-in 的源頭：[docling-project/docling](https://github.com/docling-project/docling)（★61k、MIT）、[opendatalab/MinerU](https://github.com/opendatalab/MinerU)（中文 / 科學 PDF 強，**AGPL** 注意授權）、[microsoft/markitdown](https://github.com/microsoft/markitdown)（★150k+、MIT）。(2) **選嵌入模型**——第一個檢索品質決策，別瞎挑：看 [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard)，中文 / 多語常用 [BGE-M3](https://github.com/FlagOpen/FlagEmbedding)（★12k、MIT）。
+
 跑完基本骨架後，跑 動手練習 1-4（embeddings / vector DB / chunking / 完整 pipeline）建立手感、再進下一節 進階 RAG 技巧。
 
 ## 🚀 進階 RAG 技巧（跑完基本 RAG 之後再看）
