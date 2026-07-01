@@ -1,6 +1,6 @@
-/* awesome-agentic-ai-zh — site branding.
+/* awesome-agentic-ai-zh — site branding + landing-page styles.
    Loaded via mkdocs.yml `extra_css`. Material defaults stay intact;
-   this only refines brand color, grid-card hover, and tables. */
+   this refines brand color, the home hero, grid cards, and tables. */
 
 /* ---- Brand color (indigo) ---- */
 :root {
@@ -8,6 +8,61 @@
   --md-primary-fg-color--light: #6366f1;
   --md-primary-fg-color--dark:  #4338ca;
   --md-accent-fg-color:         #6366f1;
+}
+
+/* ---- Landing hero (index.md) ---- */
+.aaz-hero {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+}
+.aaz-hero .aaz-repo {
+  font-family: var(--md-code-font-family);
+  font-size: .72rem;
+  color: var(--md-default-fg-color--light);
+}
+.aaz-hero h1 { font-size: 2.1rem; font-weight: 700; margin: .35rem 0 .25rem; }
+.aaz-hero .aaz-tagline {
+  font-size: 1.05rem;
+  color: var(--md-default-fg-color--light);
+  max-width: 34rem;
+  margin: .4rem auto 1.4rem;
+  line-height: 1.6;
+}
+.aaz-cta {
+  display: inline-flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.aaz-cta .md-button { border-radius: 24px; }
+.aaz-langs { display: flex; gap: .4rem; justify-content: center; flex-wrap: wrap; }
+.aaz-langs span {
+  font-size: .72rem;
+  color: var(--md-default-fg-color--light);
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 20px;
+  padding: .15rem .7rem;
+}
+
+/* ---- Stat strip ---- */
+.aaz-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .75rem;
+  max-width: 40rem;
+  margin: 1.5rem auto;
+}
+.aaz-stat {
+  text-align: center;
+  padding: 1rem .4rem;
+  border-radius: 12px;
+  background: var(--md-default-fg-color--lightest);
+}
+.aaz-stat .aaz-num { font-size: 1.6rem; font-weight: 700; display: block; line-height: 1.2; }
+.aaz-stat .aaz-lbl { font-size: .78rem; color: var(--md-default-fg-color--light); }
+@media (max-width: 30rem) {
+  .aaz-stats { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ---- Grid-card polish (Material `.grid.cards`) ---- */
